@@ -71,7 +71,7 @@
 
   ⭕ DISPLAY USER-INFO IN DETAILS => git config --list
 
-   ⭕ DISPLAY USER-INFO SPECIFICALLY => 
+  ⭕ DISPLAY USER-INFO SPECIFICALLY => 
     > git config user.name
     > git config user.email
 
@@ -342,6 +342,6 @@
   👉 No need to fork.
 
 
-  
   😊END😊
+
 */
