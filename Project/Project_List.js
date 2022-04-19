@@ -9,6 +9,6 @@
 5. Login-System - Mern
 6. Responsible Navbar
 7. Only BootStrap In React JS Project
-
+8. Typing Animation
 
 */
