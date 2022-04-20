@@ -1047,26 +1047,27 @@ Chapter 17 : Icon  ✌️
 
 Chapter 18 : Components  ✌️
 
-  👉 Pre-define in Bootstrap website, just copy & customize if needed.
+  👉 Pre-define Components can get from Bootstrap website, Just copy & customize if needed.
 
-  #️⃣ Table
-  #️⃣ Forms
-  #️⃣ components
+ 
+
+Chapter 19 : Bootstrap Icon with React ✌️
+
+
+  🌿 Installation  :
+
+    > npm install react-bootstrap-icons
+
+
+  Example :  📝
+
+    import {Icon1, Icon2, ...} from "react-bootstrap-icons";
+
+    <Icon1 color="blue" size={96} />
+
+    <Icon2 className="ml-4" />
+
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  😊 END 😊
 
 */
