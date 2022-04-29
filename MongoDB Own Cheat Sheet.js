@@ -421,7 +421,9 @@ Chapter 4 : mongoose  ✌️
           default : Date.now()
         }
 
-      });
+      },
+        { timestamps: true }
+      );
 
       module.exports = todoSchema;
 
@@ -619,6 +621,15 @@ Chapter 4 : mongoose  ✌️
       
       👉 Initialization : document.key = [].concat( {object},... )
    
+
+      6️⃣ { timestamps: true }
+
+        🌿 Mongoose Schema have a "timestamps" option that tells Mongoose to automatically manage createdAt and updatedAt properties on our documents. 
+
+        👉 Declare outside Schema Object.
+
+        👉 Default: { timestamps: false }
+
 
 
   # create a Mongoose Model  ✅
