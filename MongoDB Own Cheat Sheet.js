@@ -1184,7 +1184,28 @@ Chapter 5 : CRUD in Mongoose  ✌️
       
 
 
-Chapter 6 : MongoDB Cloud  ✌️
+Chapter 6 : Populate Relation  ✌️
+
+  🌿 In mongoose, we can also establish relation between multiple database. 
+
+  
+  👉 Set-up
+
+  🟠 In Schema
+
+    anyName: {
+      type : mongoose.Types.ObjectId,
+      ref : "database_name"
+    }
+
+
+  🟠 When need to get
+
+    model.fine({}).populate("database_name","view_specific_field -ignore_specific_field");
+
+
+    
+Chapter 7 : MongoDB Cloud  ✌️
 
   👉 Used MongoBD Cloud for access MongoDB's Database from anywhere.
 
