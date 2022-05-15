@@ -55,7 +55,7 @@
 
  🌿 Configuration
 
-  🟢 Best Practice : Github account Info & Configuration Info have to be same.
+  🟢 Best Practice : Git Configuration Info & Github account Info have to be same.
 
    👉 clarify Owner.
 
@@ -122,16 +122,6 @@
    ⭕ WHEN SPECIFIC EXTENSION'S ALL FILES => git *.extension
 
 
- 🌿 When edit any Stage's Files
-
-  👉 When we edited any Stage's file then it convert to Unstage state again.
-
-  ⭕ IF WE WANT DISCARD CHANGES => git restore fileName.extension
-
-  ⭕ IF WE WANT TO SEE ALL CHANGES => git diff 
-
-   👉 diff => different
-
 
  🌿 Convert Stage files to Unstage 
 
@@ -139,6 +129,17 @@
 
   ⭕ WHEN WANT TO SPECIFIC FILE => git rm --cached fileName.extension
 
+
+
+  🌿 When edit any Stage's Files
+
+  👉 When we edited any Stage's file then it convert to Unstage state again.
+
+   ⭕ IF WE WANT DISCARD CHANGES => git restore fileName.extension
+
+   ⭕ IF WE WANT TO SEE ALL CHANGES => git diff 
+
+   👉 diff => different
 
 
 
@@ -174,7 +175,6 @@
   ⭕ WHEN WANT TO CONVERT COMMIT TO STAGE STATE => git reset --soft HEAD~[number]
 
   ⭕ WHEN WANT TO CONVERT COMMIT TO WORKING DIRECTORY[1st] => git reset HEAD~[number]
-
 
   ⭕ WHEN WANT TO CONVERT CURRENT COMMIT TO PREVIOUS COMMIT  => git reset --hard HEAD~[number]
 
@@ -252,7 +252,7 @@
       ``` 
 
 
-#️⃣ Connecting Local and Remote Repository
+#️⃣ Connecting Local and Remote Repository [Git & Github]
 
   ⭕ CHECK REMOTE CONNECTION ALREADY ESTABLISH OR NOT => git remote
 
@@ -270,10 +270,10 @@
   ⭐ For Push, that files must be in Local Repository [3rd state].
   
 
-  ⭕ COMMIT SUBMIT LOCAL REPOSITORY TO REMOTE REPOSITORY => git push -u urlReferenceName branchName
+  ⭕ COMMIT SUBMIT LOCAL REPOSITORY TO REMOTE REPOSITORY => git push urlReferenceName [branchName]
 
 
-  ⭕ COMMIT GET REMOTE REPOSITORY TO LOCAL REPOSITORY => git pull urlReferenceName branchName
+  ⭕ COMMIT GET REMOTE REPOSITORY TO LOCAL REPOSITORY => git pull urlReferenceName [branchName]
 
 
 
