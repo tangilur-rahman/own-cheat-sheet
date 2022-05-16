@@ -29,6 +29,7 @@
    );
 
   
+
 #️⃣ "react-router-dom" library's Modules  ✅
 
   ⭐ "react-router-dom" library's every importing modules are Component
@@ -82,7 +83,8 @@
 
   🎯 ../urlPath 
     👉 means back one-step from there, redirect that url-path.
-  
+
+    
 
   🌿 element Attribute
 
@@ -266,7 +268,7 @@
   🌿 Understand [ In Background Something like that ]
 
     const NavLink = (callBack) =>{
-      return callBack({isActive : true ❗ false})
+      return callBack({isActive : true || false})
     }
 
     NavLink((object)=>{
@@ -399,7 +401,7 @@
             <Route path="/" element={<Home/>} />
 
             <Route path="learn" element={<Learn/>} >
-            <Route path="html" element = {<h2>Learn HTML</h2>} />
+              <Route path="html" element = {<h2>Learn HTML</h2>} />
             </Route>
               
           </Routes>
@@ -469,7 +471,7 @@
     const Contract = () => {
       return (
         <div>
-          {true : {<Navigate to = "email"/>} ? {<Navigate to = "login"/>}}🎯
+          {true : {<Navigate to = "login"/>} ? {<Navigate to = "signup"/>}}🎯
         </div>
       );
     };
@@ -477,7 +479,7 @@
     export default Contract;
 
 
-    👉 Here, Contract page to redirect "/email" or "/login" urlPath, base on condition.
+    👉 Here, Contract page to redirect "/login" or "/signup" urlPath, base on condition.
 
 
 
@@ -491,6 +493,7 @@
 
 
   ⭐ It's mainly used above "return" Statement.
+
 
   Syntax :  🧬
 
@@ -508,10 +511,11 @@
         return Navigate("/login")
       }
 
-      return <></>
+      return <>...</>
     }
 
 
+    
 #️⃣ useParams() Hook  ✅
 
   Note: "react-router-dom" has another one Hook { useParams }, its used to get parameter's values from url-address-bar.
@@ -542,7 +546,7 @@
 
         Path = "urlPath/:param1/:param2/:..."
 
-    ⭐ It's kind of path must be define at the END,
+    ⭐ That's kind of path must be define at the END,
         cause when we submitted any-Route in url-address-bar, it think that value for itself.
       
 
@@ -628,7 +632,7 @@
       <Routes>
         
         <Route  path='/' element = {<Home />}      />
-        <Route  path='/html' element = {<CSS />}   />
+        <Route  path='/html' element = {<HTML />}   />
         <Route  path='/css' element = {<CSS/>}     />
 
         <Route path = "*"  element = {<ErrorComponent />}   />
