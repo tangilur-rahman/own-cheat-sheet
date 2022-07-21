@@ -2109,16 +2109,77 @@ Chapter 20 : Create Custom Hook  ✌️
         {isLoading ?<h2>Loading...</h2> : fetchData }; 
 
         </>
-      
-
       )
     }
-
     export default App;
+
+
+    
+Chapter 21 : Context Api  ✌️
    
+  ⭕ ContextApi.js
+  
+  import React, { createContext, useContext, useState } from "react";
+
+  const exampleContext = createContext();
+
+  const ContextApi = ({ children }) => {
+    const [number, setNumber] = useState(0);
+    const [state2, setState2] = useState("hi");
+
+    const value = {
+      number,
+      setNumber,
+      state2,
+      setState2
+    };
+
+    return (
+      <>
+        <exampleContext.Provider value={{ value }}>
+          {children}
+        </exampleContext.Provider>
+      </>
+    );
+  };
+
+  export const ContextState = () => {
+    return useContext(exampleContext);
+  };
+
+  export default ContextApi;
 
 
-  # File Structure  ✅
+  ⭕ index.js
+
+  const root = ReactDOM.createRoot(document.getElementById("root"));
+
+  root.render(
+    <ContextApi>
+      <App />
+    </ContextApi>
+  );
+
+  ⭕ Component.js
+
+  const Socket = () => {
+	const { number, setNumber, state2 } = ContextState().value;
+
+    return (
+      <>
+        <div className="socket-container">
+          <button onClick={() => setNumber(number + 1)}>Click me</button>
+          <span>Count Number : {number}</span>
+          <p>{state2}</p>
+        </div>
+      </>
+    );
+  };
+  export default Socket;
+
+
+
+  🌿 File Structure  ✅
 
     1. components  FOLDER  =>  ( all components )
     2. container   FOLDER  =>  ( containers for components )

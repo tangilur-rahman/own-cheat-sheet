@@ -80,8 +80,7 @@ Chapter 3  : Creating an Express JS Server ✌️
 
       Note : Here that express is a function and it's an object also - not only in a sense.
       
-       Every function in JavaScript is an object. It actually can define some custom properties,
-        like express.json(),express.static() etc when to use it like an normal object.
+      Every function in JavaScript is an object. It actually contain some custom properties,like express.json(), express.static() etc. When to use it like an normal object.
 
 
       Example:  📝
@@ -109,32 +108,32 @@ Chapter 3  : Creating an Express JS Server ✌️
 
       Example:( In Background Express JS Module Structure ) obviously inside IIFE function 📝
 
-      🟠 Export.js 
+      ⭕ Export.js 
 
         const express = () => {
 
-          return " exports whole express module " ;
+          return "exports whole express module" ;
 
         };
 
-        express.json = () => { ... return " Content-Type" : "application/json" }
+        express.json = () => { ... return "Content-Type" : "application/json" }
 
-        export.raw = ()  => { ... return " Content-Type" : "application/octet-stream" }
+        express.raw = ()  => { ... return "Content-Type" : "application/octet-stream" }
 
-        export.text = ()  => { ... return " Content-Type" : ""text/plain"" }
+        express.text = ()  => { ... return "Content-Type" : "text/plain" }
 
-        export.urlencoded = ()  => { ... return " Content-Type" : "application/x-www-form-urlencoded" }
+        express.urlencoded = ()  => { ... return "Content-Type" : "application/x-www-form-urlencoded" }
 
-        export.static = () => {}
+        express.static = () => {}
 
-        export.Router = () => {}
+        express.Router = () => {}
 
 
         module.exports = express;
 
 
       
-      🟠 Import.js  
+      ⭕ Import.js  
 
         const functionReference = require("express");
 
@@ -244,7 +243,7 @@ Chapter 3  : Creating an Express JS Server ✌️
 
 Chapter 4 :  POSTMAN SOFTWARE ( For Testing )  ✌️
 
-  Note: Browser only can handle and test " GET "  HTTP method,
+  Note: Browser only can handle and test "GET"  HTTP method,
     but If we want to testing  other HTTP methods then we need to install postman software.
 
 
@@ -282,19 +281,19 @@ Chapter 4 :  POSTMAN SOFTWARE ( For Testing )  ✌️
 
 
 
-Chapter 5 : Express JS most importance API  ✌️
+Chapter 5 : Express JS's most importance API  ✌️
 
-  1. express      => " express " module returned [Function & Object] ( express ) 📌
+  1️⃣ express      => "express" module returned [Function & Object] ( express ) 📌
 
-  2. Application  => " express() " method returned Object ( app )  📌  
+  2️⃣ Application  => "express()" method returned Object ( app )  📌  
 
-  3. Request      => server request parameter  ( request )  📌
+  3️⃣ Request      => server request parameter  ( request )  📌
 
-  4. Response     => server response parameter ( response )  📌 
+  4️⃣ Response     => server response parameter ( response )  📌 
 
-  5. Router       => express.Router()  📌
+  5️⃣ Router       => express.Router()  📌
 
-  6. middleware   => It's a function which executing between request & response cycle  📌
+  6️⃣ middleware   => It's a function which executing between request & response cycle  📌
 
     👉 In Express JS, every function could be a middleware.
 
@@ -302,13 +301,13 @@ Chapter 5 : Express JS most importance API  ✌️
 
 Chapter 6 :  express API ✌️
 
-  Note: Not compulsory, to define that [Function & Object] name is " express " but it's Standard.
+  Note: Not compulsory, to define that [Function & Object] name is "express", but it's Standard.
 
   Syntax : 🧬
 
     const express = require("express");
 
-    Note: That "express " Object has some pre-define methods, we gonna learn it in that chapter.
+    Note: That "express" Object has some pre-define methods, we gonna learn those in that chapter.
 
   
   ⭐ compare with Node JS
@@ -359,9 +358,9 @@ Chapter 6 :  express API ✌️
 
 
 
-  #️⃣ At first we need to understand, What is middleware ? & What is app.use() ?
+  #️⃣ At first we need to understand, What is middleware? & What is app.use()?
 
-    👉 Cause that " express " Object's all methods are pre-define middleware which them applied with application-level or router-level.
+    👉 Cause that "express" Object's all methods are pre-define middleware which them applied with application-level or router-level.
 
    
   # What is middleware ?  ✅

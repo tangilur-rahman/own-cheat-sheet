@@ -1,38 +1,37 @@
 /*
-
 ❤️❤️❤️ .env ❤️❤️❤️
 
 
-# What is .env file ?  ✅
+#️⃣ What is .env file ?  ✌️
 
   👉 .env  => environment file
 
-  Note: Secret- Hidden file, Only developer can access that file's variables from anywhere.
+  Note: Secret-Hidden file, Only developer can access that file's variables from anywhere.
 
 
-# Why .env file ?  ✅
+#️⃣ Why .env file ?  ✌️
 
   Note: To store private environment variables for our application.
 
     Example:  📝
 
-      1. HTTP Port
+      ⭕ HTTP Port
 
-      2. Database URL
+      ⭕ Database URL
 
-      3. API Keys 
+      ⭕ API Keys 
 
-      4. JWT's Secret Key etc.
+      ⭕ JWT's Secret Key etc.
 
 
   Note: Github / Heroku also support the usage of environment variable.
 
 
-# How to use .env variables ?  ✅
+#️⃣ How to use .env variables ?  ✌️
 
-  1. Create a " .env " file in the ROOT directory.  📌
+  ⭕ Create a ".env" file in the ROOT directory.  📌
 
-  2. Inside that file, define environment variables using UPPERCASE letters and under_score if more than one word. ( standard )  📌
+  ⭕ Inside that file, define environment variables using UPPERCASE letters and under_score if more than one word. ( standard )  📌
 
    Example : 📝
 
@@ -41,7 +40,7 @@
     DATABASE_URL
 
 
-  3. Assign the values without double quotation & space & end with semicolon (;)   📌
+  ⭕ Assign the values without double quotation & space & end with semicolon (;)   📌
 
    Example: 📝
 
@@ -50,25 +49,25 @@
     DATABASE_URL=mongodb+srv://mongo:demo1234...
 
 
-  4. We can make a comment using " # "  📌
+  ⭕ We can make comments using "#️"  📌
 
    Example: 📝
 
     # server port
     PORT=3000
 
-  5. install " dotenv " external package   📌
+  ⭕ install "dotenv" external package module   📌
   
     > npm install dotenv 
 
-  6. require dotenv package  📌
+  ⭕ require dotenv package  📌
   
     > require("dotenv").config(); 
 
-    👉 Only define " index.js " file then can access that package from anywhere in our application.
+    ⭐ Only define "index.js" file then can access that package from anywhere in our entire application.
 
 
-  7. Access the ".env" file's variables from anywhere using process.env.VARIABLE_NAME  📌
+  ⭕ Access the ".env" file's variables from anywhere using process.env.VARIABLE_NAME  📌
   
    Example :  📝
    
@@ -76,12 +75,12 @@
 
 
 
-👉 At the end, declare that file into " .gitignore "  file, if we want.
+🌿 Finally, declare that file into ".gitignore"  file, if we want.
 
 
 Example:  📝
 
-  🟠 .env 
+  🟢 .env 
 
     # server port
     PORT=3002
@@ -90,7 +89,7 @@ Example:  📝
     name=Tangilur_Rahman
 
 
-  🟠 index.js
+  🟢 server.js
 
     require("dotenv").config();
 
