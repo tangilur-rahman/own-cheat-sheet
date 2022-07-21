@@ -2114,7 +2114,7 @@ Chapter 20 : Create Custom Hook  ✌️
     export default App;
 
 
-    
+
 Chapter 21 : Context Api  ✌️
    
   ⭕ ContextApi.js
@@ -2124,6 +2124,7 @@ Chapter 21 : Context Api  ✌️
   const exampleContext = createContext();
 
   const ContextApi = ({ children }) => {
+
     const [number, setNumber] = useState(0);
     const [state2, setState2] = useState("hi");
 
@@ -2160,17 +2161,18 @@ Chapter 21 : Context Api  ✌️
     </ContextApi>
   );
 
+
   ⭕ Component.js
 
   const Socket = () => {
-	const { number, setNumber, state2 } = ContextState().value;
+	const { number, setNumber, state } = ContextState().value;
 
     return (
       <>
         <div className="socket-container">
           <button onClick={() => setNumber(number + 1)}>Click me</button>
           <span>Count Number : {number}</span>
-          <p>{state2}</p>
+          <p>{state}</p>
         </div>
       </>
     );
