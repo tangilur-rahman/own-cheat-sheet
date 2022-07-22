@@ -15,15 +15,15 @@ Chapter 1 : What is Express JS ? ✌️
 
 Chapter 2 : Install Express JS ✌️
 
-  Note: Express JS is a external modules so, first time need to install it.
+  Note: Express JS is a external modules so, at first need to install it.
   
-    > npm install express  ❤️
+    🧬 npm install express  ❤️
 
 
 
 Chapter 3  : Creating an Express JS Server ✌️
       
-  # Importance HTTP methods ✅
+  #️⃣ Importance HTTP methods ✅
 
     1. create    =>     POST
     2. read      =>     GET
@@ -33,29 +33,29 @@ Chapter 3  : Creating an Express JS Server ✌️
 
   
 
-  # Create an Express JS server ✅
+  🌿 Create an Express JS server ✅
  
   Syntax: 🧬
 
-    const functionReference = require("express");
+    const function_Reference = require("express");
     
-    const object = functionReference();
+    const object = function_Reference();
 
-    object.httpMethod("/route",createServer_CallBackFunc(request,response){
+    object.http_Method("/route",(request,response,next){
 
-        // what do you want to do with server
+      // what do you want to do with server
 
     });
     
-    object.listen(portNumber,()=>{
+    object.listen(port_Number,()=>{
 
-        // for checking server was running or not
+      // for checking server was running or not
 
     });
 
 
     👉 We can define server's callBack() function separately for every httpMethod & route in a server,
-     but each runtime only one callBack() function will be executed.
+     ⭐ but each runtime only one callBack() function will be executed.
 
   
   Example:  📝
@@ -70,184 +70,175 @@ Chapter 3  : Creating an Express JS Server ✌️
 
     ...
 
-    app.listen( 3000 );
+    app.listen( 3000,()=> console.log("Server is running at 3000"));
 
      
-    Note: Here the "express()" function is a top-level function which exported the entire express module.
+  👉 Here the "express()" function is a top-level function which exported the entire express module.
 
     
-    Advance : 👌
+  Advance : 👌
 
-      Note : Here that express is a function and it's an object also - not only in a sense.
+    🌿 Here that express is a function and it's an object also - not only in a sense.
       
-      Every function in JavaScript is an object. It actually contain some custom properties,like express.json(), express.static() etc. When to use it like an normal object.
+    🌿 Every function in JavaScript is an object. It actually contain some custom properties, like express.json(), express.static() etc. When to use it like an normal object.
 
 
-      Example:  📝
+    Example:  📝
 
-        let myInfo = () =>{
+      let myInfo = () =>{
     
-          return "Tangilur Rahman";
-        }
+        return "Tangilur Rahman";
+      }
 
-        myInfo.age = 23;
+      myInfo.age = 23;
 
-        myInfo.address =() =>{
+      myInfo.address =() =>{
 
-            return "Joypurhat";
+        return "Joypurhat";
 
-        }
+      }
 
-        console.log(myInfo());         // Tangilur Rahman
+      console.log(myInfo());         // Tangilur Rahman
 
-        console.log(myInfo.address()); // Joypurhat
+      console.log(myInfo.address()); // Joypurhat
 
-        console.log(myInfo.age);       // 23
+      console.log(myInfo.age);       // 23
       
 
 
-      Example:( In Background Express JS Module Structure ) obviously inside IIFE function 📝
+  #️⃣ In Background Express JS Module Structure ( obviously inside IIFE function ) 
 
-      ⭕ Export.js 
+    ⭕ Export.js 
 
-        const express = () => {
+      const express = () => {
 
-          return "exports whole express module" ;
+        module.export = {exports whole express-module's object};
 
-        };
+      };
 
-        express.json = () => { ... return "Content-Type" : "application/json" }
+      express.json = () => { module.exports = { method: ..., body: ..., headers: ... };
 
-        express.raw = ()  => { ... return "Content-Type" : "application/octet-stream" }
+      express.raw = ()  => { module.exports = { method: ..., body: ..., headers: ... };
 
-        express.text = ()  => { ... return "Content-Type" : "text/plain" }
+      express.text = ()  => { module.exports = { method: ..., body: ..., headers: ... };
 
-        express.urlencoded = ()  => { ... return "Content-Type" : "application/x-www-form-urlencoded" }
+      express.urlencoded = ()  => { module.exports = { method: ..., body: ..., headers: ... };
 
-        express.static = () => {}
+      express.static = () => { // to serves public assets }
 
-        express.Router = () => {}
+      express.Router = () => { // help to create sub-router }
 
-
-        module.exports = express;
 
 
       
-      ⭕ Import.js  
+    ⭕ Import.js  
 
-        const functionReference = require("express");
+      const function_Reference = require("express");
 
-        const getExpressModule = functionReference();
+      const get_Express_Module_object = function_Reference();
 
       
-        👉 That " getExpressModule " is a object ( app ).
+      👉 That "get_Express_Module_object" is Express main router.
 
 
 
-  # Response Hello World  ✅
+  #️⃣ Example Hello-World
 
+  ⭕ In Node JS ✅
 
-    Example : ( IN NODE JS )  📝
+    const http = require("http");
 
-      > const http = require("http");
+    const server = http.createServer((req,res)=>{
 
-      const server = http.createServer((req,res)=>{
-
-        if(request.url === "/" && request.method === "GET"){
+      if(request.url === "/" && request.method === "GET"){
          
-          res.end("Hello World");
+        res.end("Hello-World");
           
-        }
+      }
+    })
 
-      })
-
-      server.listen(4000,()=> console.log("server was running"));
+    server.listen(4000,()=> console.log("server was running at 4000"));
       
       
-    Example : ( IN EXPRESS JS )  📝
+  ⭕ In Express JS ✅
 
-      > const express = require("express");
+    const express = require("express");
 
-        const app = express();
+    const app = express();
 
-        app.get("/",( request, response) =>{
+    app.get("/",( request, response ) =>{
          
-          res.send("Hello World");
+      res.send("Hello-World");
 
-        })
+    })
 
-        app.listen(4000,()=> console.log("server was running"));
+    app.listen(4000,()=> console.log("server was running at 4000"));
  
 
 
-  # Define multiple HTTP methods  ✅
+  #️⃣ Define multiple HTTP methods  ✅
 
-    ⭐ compare with Node JS
+    ⭐ Let's compare with Node JS
 
-    🟢 Node JS
+    ⭕ In Node JS
 
-    > const server = http.createServer((req, res) => {
+      const server = http.createServer((req, res) => {
   
         if(req.url === "/route", req.method === "GET"){
-            // req & res
+
+          // response
+
+        }else if(req.url === "/route", req.method === "POST"){
+
+          // response
+
         }
 
         ...
-
       });
 
 
-    🟢 Express JS
+    ⭕ In Express JS
 
-    > const express = require("express");
+      const express = require("express");
 
       const app = express();
 
       app.get("/",(request,response)=>{
-
-        response.send("i am home page");
-          
-      })
+        response.send("i am home page");    
+      });
 
       app.post("/",(request,response)=>{
-
-        response.send("i am home page with post method ");
-          
-      })
+        response.send("i am home page with post method ");    
+      });
 
       app.get("/about",(request,response)=>{
-
-        response.send("i am about page");
-         
-      })
+        response.send("i am about page");     
+      });
 
       app.put("/service",(request,response)=>{
-
-        response.send("i am service page");
-         
-      })
+        response.send("i am service page");     
+      });
 
       app.delete("/service",(request,response)=>{
-
-        response.send("i am service page");
-         
-      })
+        response.send("i am service page");       
+      });
 
       app.listen(4000,()=> console.log("server was running"));
 
 
-    Note: Start checking route top to bottom and each run-time only one satisfied server's callBack() function is execute,
-    👉 even if it have duplicate declaration.
+    ⭐ Start checking route top to bottom and each run-time only one satisfied server's callBack() function is execute,
+    🌿 even if it have duplicate declaration.
 
 
 
 Chapter 4 :  POSTMAN SOFTWARE ( For Testing )  ✌️
 
-  Note: Browser only can handle and test "GET"  HTTP method,
+  👉 Browser only can handle and test "GET"  HTTP method,
     but If we want to testing  other HTTP methods then we need to install postman software.
 
 
-  Example:  🧬
+  Example:  📝
 
     const express = require("express");
 
@@ -255,7 +246,6 @@ Chapter 4 :  POSTMAN SOFTWARE ( For Testing )  ✌️
 
     app.get("/",(request,response)=>{
         response.send("i am get for read")
-        response.end();
     });
 
     app.post("/",(request,response)=>{
@@ -274,10 +264,10 @@ Chapter 4 :  POSTMAN SOFTWARE ( For Testing )  ✌️
         response.send("i am patch for specific modify")
     });
 
-    app.listen(4000,()=> console.log("server was running"));
+    app.listen(4000,()=> console.log("server was running at 4000"));
 
 
-  Note: Now, just paste url-address and select HTTP method then we will get output. ( Testing Purpose )
+ 🌿 Now, Just paste url-address and select HTTP method then we will get output. ( Testing Purpose )
 
 
 
@@ -285,34 +275,34 @@ Chapter 5 : Express JS's most importance API  ✌️
 
   1️⃣ express      => "express" module returned [Function & Object] ( express ) 📌
 
-  2️⃣ Application  => "express()" method returned Object ( app )  📌  
+  2️⃣ Application  => "express()" function returned Object [express-server] ( app )  📌  
 
-  3️⃣ Request      => server request parameter  ( request )  📌
+  3️⃣ Request      => server_callback_function's "request" parameter  ( req )  📌
 
-  4️⃣ Response     => server response parameter ( response )  📌 
+  4️⃣ Response     => server_callback_function's "response" parameter ( res )  📌 
 
   5️⃣ Router       => express.Router()  📌
 
   6️⃣ middleware   => It's a function which executing between request & response cycle  📌
 
-    👉 In Express JS, every function could be a middleware.
+    ⭐ In Express JS, every server_callback_function could be either a middleware or not.
 
 
 
 Chapter 6 :  express API ✌️
 
-  Note: Not compulsory, to define that [Function & Object] name is "express", but it's Standard.
+  🌿 Not compulsory, to define that [Function & Object] name is "express", but it's standard.
 
   Syntax : 🧬
 
     const express = require("express");
 
-    Note: That "express" Object has some pre-define methods, we gonna learn those in that chapter.
+    👉 That "express" is function & object both.
 
   
-  ⭐ compare with Node JS
+  ⭐ compare with Node JS (Easy to used)
 
-    🟢 Node JS
+    ⭕ In Node JS
 
     const http = require('http');
 
@@ -326,7 +316,7 @@ Chapter 6 :  express API ✌️
         });
 
         req.on('end', () => {
-          req.headers = { 'content-type': 'application.json' };
+          req.headers = { "content-type": "application.json" };
 
           req.body = array.toString();
 
@@ -335,16 +325,16 @@ Chapter 6 :  express API ✌️
       }
     });
 
-    server.listen(4000, () => console.log(`server was running at 4000`));
+    server.listen(4000, () => console.log("server was running at 4000"));
 
 
-    🟢 Express JS
+    ⭕ In Express JS
 
       const express = require("express");
 
       const app = express();
 
-      app.use(express.json())
+      app.use(express.json());
 
       app.post("/",(req,res)=>{
 
@@ -352,50 +342,53 @@ Chapter 6 :  express API ✌️
 
       })
 
+      app.listen(4000, () => console.log("server was running at 4000"));
+
 
     👉 Above Example used {"content-type" : "application/json"},
-     but we can define same procedure with any content-type.
+     but we can achieve with any content-type in same procedure.
 
 
 
-  #️⃣ At first we need to understand, What is middleware? & What is app.use()?
+
+  🌿 At first we need to understand, What is middleware? & What is app.use()?
 
     👉 Cause that "express" Object's all methods are pre-define middleware which them applied with application-level or router-level.
 
    
-  # What is middleware ?  ✅
+  #️⃣ What is middleware ?  ✅
 
-    Note: Middleware is a normal function which can access to request & response Objects and next function [callBack].
+    👉 Middleware is a normal function which can access to request & response Objects and take a callBack_function [next()]. ( 3 parameters )
 
-    Note: It is those functions that are called BETWEEN processing the Request and sending the Response in our application.
+    👉 It is those functions that are called between processing the request and sending the Response in our application.
 
-    Note: Middleware are the functions which work like a door between server's request & response.
+    👉 Middleware are those functions which work like a door between server's request & response.
 
-      👉 client send request => middleware => request object => response object => output
+      💞 client send request => middleware => request object => response object => output
 
-    Note: We can define multiple middleware between server's request & response.
+    👉 We can define multiple middleware between server's request & response.
 
-    Note: Every middleware have ability to send response from there or throws ERROR,
+    👉 Every middleware have ability to send response from there or throws ERROR,
      after that next middleware didn't work.
 
-    Note : In Express JS we can simply modify request & response object through middleware.
+    👉 In Express JS, we can also modify request & response object through middleware.
      
-    Note: Middleware mainly used to initialize request & response objects.
+    👉 Middleware also used to initialize request & response objects.
 
-    Note: Middleware is kind of event's action define function which fire with client request.
+    👉 Middleware is kind of event's action define function which fire with client request.
 
-     So, must be initialize it before call [ app.use( middleware ) or sub-router.use( middleware ) ] 
+     ⭐ So, must be initialize it before call [ app.use( middleware ) || sub-router.use( middleware ) ] 
      
-     cause we knew those event's action will be execute which them already registered.
+     cause we knew only those event's action will be execute which them already registered.
 
 
-    # A middleware Basic Features ✅
+    #️⃣ A middleware Basic Features ✅
 
       1. executes any code
 
       2. can modify Request & Response Objects
 
-      3. can end Request/Response cycle  [res.send()]
+      3. can END Request/Response cycle  [res.send()]
 
       4. next() function is used to pass control to the next middleware function  
        
@@ -404,29 +397,29 @@ Chapter 6 :  express API ✌️
       5. throw & catch ERRORS.
 
 
-    # Types of middleware ✅
+    #️⃣ Types of middleware ✅
 
-      1. application-level middleware   [ app.use( middleware )  ]
+      1. application-level middleware   [app.use(middleware)]
 
-      2. router-level middleware    [ sub-router.use( middleware ) ]
+      2. router-level middleware    [sub-router.use(middleware)]
 
       3. error-handling middleware 
 
-      4. built-in middleware   [ express.json(), express.urlencoded()  etc...]
+      4. built-in middleware   [express.json(), express.urlencoded()  etc...]
 
-      5. third-party middleware  [ cookie-parser  etc... ]
+      5. third-party middleware  [cookie-parser  etc...]
 
 
 
-  # What is app.use( middleware )?  ✅
+  #️⃣ What is app.use( middleware )?  ✅
 
-    Note: " app.use( middleware ) " is a method that allows us to called application-level middleware,
+    🌿 "app.use( middleware )" is a method that used to called application-level middleware,
 
      & impact into whole application ( request & response object )
      
-     & execute that method with every client request.
+     & execute that method with every client request ⭐.
 
-    Note: In simple words " app.use() " is a method that takes another function (middleware) as a parameter and runs every time when the client request is sent to the server.
+    👉 In simple words "app.use()" is a method that takes another function (middleware) as a parameter and runs every time when the client request is sent to the server.
 
    
     Syntax : 🧬
@@ -438,19 +431,19 @@ Chapter 6 :  express API ✌️
 
       const middleware = () =>{
 
-        console.log("That function will be execute with every client request ");
+        console.log("That function will be execute with every client's request");
 
       }
       app.use( middleware );
 
     
-    Note: " app.use( middleware ) " is used for called application-level middleware  which fire with every client request.
+    👉 "app.use( middleware )" method is used for called application-level middleware  which fire with every client request.
 
-     So, must be initialize that middleware function before called.
+     So, must be initialize those middleware functions before called.
      
-     cause we knew those event's action will be execute which them already registered.
+     cause we knew only those event's action will be execute which them already registered.
 
-    Note: We can define multiple app.use() method in a application.
+    🌿 We can define multiple "app.use()" methods in a application.
 
  
 
@@ -458,26 +451,25 @@ Chapter 6 :  express API ✌️
 
 
 
-  # 'express' Object some pre-define methods ✅
+  #️⃣ "express" Object some pre-define middleware ✅
 
+    🌿 "express" Object's all pre-define middleware functions can used with application-level or router-level. 
 
-    Note: "express" Object's all pre-define middleware methods can used with application-level or router-level. 
-
-    & we can define multiple "express" Object's methods in any module.
+    & we can define multiple "express" Object's middleware functions in any module.
 
 
     1. express.json();  📌
 
-      Declaration : 
+      Declaration :  🍀
 
         > app.use( express.json() ); 
 
         > sub_router.use(express.json());
         
-      Note: " express.json() " method simply sended JSON Data { "Content-Type" : "application/json" } to convert into Object and attach them into " request.body " property.
+      👉 "express.json()" method simply sended JSON Data {"Content-Type" : "application/json"} to convert into Object and attach them into "request.body" property.
 
       
-      # In Background ✅
+      ⭕ In Background  ✅
 
         express.json = (req, res, next) =>{
 
@@ -495,33 +487,30 @@ Chapter 6 :  express API ✌️
             })
 
             next();
-
         }
 
         app.use(express.json());
 
       
-      Note: Something like that procedure applied with  "express" Object's all middleware methods.
+      👉 Something like that procedure applied with "express" Object's all middleware functions.
 
 
-      Example:
+      Example:  📝
 
-       🟠 JSON DATA SENDED 
+       ⭕ JSON DATA SENDED 
 
         { 
           "name" : "Tangilur Rahman",
           "age"  : 23,
           "address" : "joypurhat"
-
         }
 
-       🟠 app.js 
+       ⭕ server.js 
 
         > app.use(express.json());
 
         app.get("/",(request,response)=>{
 
-        
           log( request.body );  // whole object 
 
           log( typeof request.body );  //  object 
@@ -536,18 +525,18 @@ Chapter 6 :  express API ✌️
 
     2. express.urlencoded();  📌
 
-      Declaration : 
+      Declaration :  🍀
 
         > app.use( express.urlencoded() ); 
 
         > sub_router.use( express.urlencoded() ); 
         
-      Note: " express.urlencoded() " method simply sended FORM Data {"Content-Type" : "application/x-www-form-urlencoded"} to convert into object and attach them into " request.body " property.
+      👉 "express.urlencoded()" method simply sended FORM Data {"Content-Type" : "application/x-www-form-urlencoded"} to convert into object and attach them into "request.body" property.
 
       
       Example:  📝
 
-       🟠 FORM DATA SENDED 
+       ⭕ FORM DATA SENDED 
 
         <form
           action="/home"
@@ -562,7 +551,7 @@ Chapter 6 :  express API ✌️
         </form>
 
 
-       🟠 app.js  
+       ⭕ server.js  
 
         > app.use(express.urlencoded());
 
@@ -582,23 +571,23 @@ Chapter 6 :  express API ✌️
 
     3. express.text();  📌
 
-      Declaration : 
+      Declaration :  🍀
 
         > app.use( express.text() ); 
 
         > sub_router.use( express.text() ); 
         
-      Note: " express.text() " method simply sended PLAIN TEXT Data {"Content-Type" : "text/plain"} to convert into String and attach them into " request.body " property.
+      👉 "express.text()" method simply sended PLAIN TEXT Data {"Content-Type" : "text/plain"} to convert into String and attach them into "request.body" property.
 
       
       Example:  📝
 
-       🟠 PLAIN TEXT SENDED 
+       ⭕ PLAIN TEXT SENDED 
 
         lorem1000
 
 
-       🟠 app.js  
+       ⭕ sever.js  
 
         > app.use(express.text());
 
@@ -613,27 +602,26 @@ Chapter 6 :  express API ✌️
 
     4. express.raw();  📌
 
-      Declaration : 
+      Declaration :  🍀
 
         > app.use( express.raw() ); 
 
         > sub_router.use( express.raw() ); 
         
-      Note: " express.raw() " method simply sended Stream Data {"Content-Type" : "application/octet-stream"} to convert into object and attach them into " request.body " property.
+      👉 "express.raw()" method simply sended Stream Data {"Content-Type" : "application/octet-stream"} to convert into object and attach them into "request.body" property.
 
-       👉 NO NEED TO USED 
-
+       🌿 NO NEED TO USED 
         request.on("data",(data)=>{})
         request.on("end",()=>{})
       
 
       Example:  📝
 
-       🟠 Stream DATA SENDED 
+       ⭕ Stream DATA SENDED 
 
         lorem1000
 
-       🟠 app.js  
+       ⭕ server.js  
 
         > app.use(express.raw());
 
@@ -648,34 +636,34 @@ Chapter 6 :  express API ✌️
         });
 
       
-    5. express.static( " rootFolderName " ); 📌
+    5. express.static( "rootFolderName" ); 📌
 
-      Note: We can't directly access static files such as images, CSS files, and JavaScript files.
+      👉 We can't directly access static files such as images, CSS files and JavaScript files etc.
 
-      Note: To serve static files such as images, CSS files, and JavaScript files,
-       use the " express.static() " built-in middleware function in Express.
+      👉 To serve static files such as images, CSS files and JavaScript files,
+       use the "express.static()" built-in middleware function in Express JS.
 
-      Note: " express.static() " method at first download everything from given root-folder 
-       then insert them automatically into Response Object.
+      👉 "express.static()" method at first download everything from given root-folder 
+       then insert them AUTOMATICALLY into response-object.
 
-      👉 We can create multiple folders & files inside that root-folder.
+      ⭐ We can create multiple folders & files inside that root-folder.
 
 
       Syntax:  🧬
 
-        app.use(express.static(" rootFolderName "));
+        app.use(express.static("root_folder_name"));
 
 
       Example:  📝
 
-        🟠 public
+        ⭕ public
 
           1. CSS files
-          2. JPG files
-          3. JS files etc...
+          2. JS files 
+          3. Image, Videos, Pdf, Audio files etc...
+          
 
-
-        🟠 index.html
+        ⭕ index.html
 
           <html >
             <head>
@@ -690,7 +678,7 @@ Chapter 6 :  express API ✌️
           </html>
 
         
-        🟠 index.js
+        ⭕ server.js
 
           const express = require("express");
 
@@ -700,24 +688,24 @@ Chapter 6 :  express API ✌️
 
           app.get("/",(req,res)=>{
 
-              res.sendFile(__dirname + "/index.html")
+            res.sendFile(__dirname + "/index.html")
                     
           })
 
           app.listen(3000,()=>{
-                console.log(`server was running at http://localhost:${3000}`);
+            console.log(`server was running at http://localhost:${3000}`);
           })
 
 
-        Note: Instead of " public " we can define anyName of root-folder-name.
+      👉 Instead of "public" we can define anyName of root-folder-name.
 
 
 
     6. express.Router();  📌
 
-      Note: " express.Router() " method return a object which used to create a new sub-router.
+      🌿 "express.Router()" method return a object which used to create a new sub-router.
 
-      👉 We can declare multiple " express.Router() " method for create multiple sub-router in our application.
+      👉 We can declare multiple "express.Router()" method for create multiple sub-router in our application.
   
 
       Example :  📝
@@ -728,51 +716,62 @@ Chapter 6 :  express API ✌️
 
         const admin = express.Router();   //  sub-router
 
-        app.use("/admin", admin );        // when fire " /admin " then active " admin "  sub-router.
+        app.use("/admin", admin );        
+        
+          👉 when fire "/admin" then active "admin" sub-router.
 
-        admin.all("/",(request,response)=>{})       // localhost:3000/admin/  
+        admin.all("/",(request,response)=>{})       
+        
+          👉 localhost:3000/admin/  
 
-        admin.all("/home",(request,response)=>{})   // localhost:3000/admin/home
+        admin.all("/home",(request,response)=>{})   
+        
+          👉 localhost:3000/admin/home
 
-        admin.all("/about",(request,response)=>{})  // localhost:3000/admin/about
+        admin.all("/about",(request,response)=>{}) 
+        
+          👉 localhost:3000/admin/about
 
-        app.get("/home",(request,response)=>{}))    // localhost:3000/home
+        app.get("/home",(request,response)=>{}))    
+        
+          👉 localhost:3000/home
 
-        app.listen(3000);
+        app.listen(3000,()=>console.log("server is running at 3000"));
 
 
 
 
-☢️☢️☢️ Learn More About " express.Router() " method in Router Chapter ☢️☢️☢️
+☢️☢️☢️ Learn More About "express.Router()" method in Router Chapter ☢️☢️☢️
 
       
 
 
 Chapter 7 : Application API ( app )   ✌️
 
-  Note: Not compulsory to define that object name is " app " name but it's Standard.
+  🌿 Not compulsory to define that object name is "app",
+    but it's standard.
 
-  Note: " app " object have some pre-define properties & methods .
-
-
-  # " app " object's Importance Property ✅
-
-    1. app.locals 📌
-
-    Note: Here " locals " is an object. 
-
-    Note: The app.locals object can store local variables which them access into the whole application,
-
-      👉 but only inside middleware() function.
+  🍀 "app" object have some pre-define properties & methods.
 
 
-    #️⃣ Inside App.js  
+  #️⃣ "app" object's only one property ✅
+
+    1️⃣ app.locals 📌
+
+      👉 Here "locals" is an object. 
+
+      👉 The "app.locals" object can store local variables which them access into the whole application.
+
+      👉 But only inside server's callBack_function.
+
+
+    ⭕ In server.js  
 
       Syntax: 🧬
 
         app.locals.variable = anyValue;
 
-        Note: We can insert multiple properties into app.locals Object
+        👉 We can insert multiple properties into app.locals Object
 
 
       Example:  📝
@@ -783,10 +782,10 @@ Chapter 7 : Application API ( app )   ✌️
 
         app.locals.info = {
 
-            name : "Tangilur Rahman",
-            age : 23
-        };
+          name : "Tangilur Rahman",
+          age : 23
 
+        };
         app.locals.address = "Joypurhat";
 
 
@@ -800,58 +799,68 @@ Chapter 7 : Application API ( app )   ✌️
 
           console.log(app.locals.age);  // undefined
 
-        app.listen(3000);
+        app.listen(3000,()=> console.log("server is running at 3000"));
 
 
 
-    #️⃣ Inside Any Exported modules  
+    ⭕ Inside Any Exported modules or sub-router
 
-      Note: Inside any exported modules we can access that locals object's properties through request or response object. 
+      👉 Inside any exported modules or sub-router, we can access that locals object's properties through request & response object. 
         
-      Note: Inside any exported modules we can't create new locals object's properties.
+      ⭐ Inside any exported modules or sub-router, we can't create new locals object's properties.
+
 
       Syntax:  🧬
         
-        request.app.locals.variableName ;
+        request.app.locals.variable_name;
       or,
-        response.app.locals.variableName ;
+        response.app.locals.variable_name;
 
 
       Example:  📝
 
-        🟠 App.js
+        ⭕ server.js
 
-          const callBack = require('./Exports.js');
+          const express = require("express");
+          const sub_Router = require('./router/sub_Router.js');
+          const app = express();
 
           app.locals.info = {
 
-              name : "Tangilur Rahman",
-              age : "23"
+            name : "Tangilur Rahman",
+            age : "23"
           };
 
+          app.use("/router",sub_Router);
 
-          app.get("/",callBack)
+          app.get("/",(req,res)=>{
+            res.send(app.locals.info);
+          });
+
+          app.listen(3000,()=> console.log("server is running at 3000"));
 
           
-        🟠 Exports.js
+        ⭕ sub_Router.js
 
-          const callBack = (request,response) =>{
+          const express = require("express");
+          const sub_router = express.Router();
+
+          sub_router.get("/",(req,res)=>{
 
             console.log(request.app.locals.info.name);
-
             response.send(response.app.locals.info.age);
 
-          }
-
-          module.exports = callBack;
+          })
+  
+          module.exports = sub_router;
        
 
           
-  # " app " object's Importance methods ✅
+  #️⃣ "app" object's all importance methods ✅
         
     1. app.get()  📌
 
-      Note: " app.get() " method used for GET HTTP method.
+      🌿 "app.get()" method used for achieve GET HTTP method.
 
       Syntax: 🧬
 
@@ -859,7 +868,7 @@ Chapter 7 : Application API ( app )   ✌️
 
         sub_router.get("/route", middlewareFunction );
 
-      👉 same procedure applied with sub_routers for All HTTP methods.
+      👉 same procedure applied with sub_routers within All HTTP methods.
 
 
       Example: 📝
@@ -870,96 +879,97 @@ Chapter 7 : Application API ( app )   ✌️
 
         app.get("/",(request,response,next)=>{
             
-              response.message1 = "i am one";
+          response.message1 = "i am one";
               
-              next();
+          next();
         })
 
         app.get("/",(request,response,next)=>{
             
-              response.message2 = "i am two";
+          response.message2 = "i am two";
 
-              next();
+          next();
         })
 
-        app.get('/', (request, response) => {
-            response.message3 = " i am three"
-          response.send(response.message1 + response.message2 + response.message3);
+        app.get('/', (req, res) => {
+          res.message3 = " i am three"
+
+          res.send(res.message1 + res.message2 + res.message3);
         });
 
-        app.listen(3000,()=>console.log("i am running at 3000 port"));
+        app.listen(3000,()=>console.log("Server is running at 3000 port"));
     
       
       👉 When response send from any middleware,
-       then NO NEED to define " next() " function.
+       then NO NEED to define "next()" function.
       
-       cause response already sended no need to pass control another middleware.
+       🍀 cause response already sended no need to pass control another middleware.
 
-      👉 With each client request, server can only send one response.
+      ⭐⭐⭐ With each client request, server can only send one response.
 
       
-      Note: That same procedure also applicable with 
+      #️⃣ That same procedure also applicable with 
 
-        🟠 app.post();
+        ⭕ app.post();
 
-        🟠 app.put();
+        ⭕ app.put();
 
-        🟠 app.delete();
+        ⭕ app.delete();
 
-        🟠 app.patch();
+        ⭕ app.patch();
 
-        🟠 app.all();
+        ⭕ app.all();
 
 
 
-    2. app.post(" /routes ", ( request,response, [ middleware ] ) => { } );  📌
+    2. app.post("/routes",( request,response, [middleware] ) => { });  📌
 
-    3. app.put(" /routes ", ( request,response, [ middleware ] ) => { } );    📌
+    3. app.put("/routes",( request,response, [middleware] ) => { });    📌
   
-    4. app.delete(" /routes ", ( request,response, [ middleware ] ) => { } );  📌
+    4. app.delete("/routes",( request,response, [middleware] ) => { });  📌
 
-    5. app.patch(" /routes ", ( request,response, [ middleware ] ) => { } );  📌
+    5. app.patch("/routes",( request,response, [middleware] ) => { });  📌
     
+    6. app.all("/routes",( request,response, [middleware] ) => { });  📌
+
+      👉 "app.all()" means applicable with all HTTP methods universal,
+       not specific ( GET, POST, PUT, DELETE, PATCH etc.)
     
-    6. app.all(" /routes ", ( request,response, [ middleware ] ) => { } );  📌
 
-      Note: " app.all() " means applicable with all HTTP methods universal , not specific ( GET, POST, PUT, DELETE, PATCH etc.)
-    
+    7. app.listen( port, callback_function )  📌
 
-    7. app.listen( port, callback )  📌
+      🌿 same as like Node JS
 
-      👉 same as like Node JS
+      👉 Inside "app.listen()" method we can define that server port number & a callBack() function.
 
-      Note: Inside " app.listen() " method we can specific that server port number & a callBack() function.
-
-      Note: That callBack() function is OPTIONAL , Just for checking that " server is running or Not ".
+      👉 That callBack() function is OPTIONAL, Just for checking server is running without any problem.
 
       Example: 📝
 
-        app.listen(4000,()=> console.log(" That Server was running at 4000 port "))
+        app.listen(4000,()=> console.log("That Server was running at 4000 port"))
     
 
 
     8. app.param( name, callBack ) 📌
 
-      Note: That method used for get router values without query from request url-address .
+      🌿 That method used for get router param values without query-string from request url-address.
 
-      Note: That type of routers always define at the end,
+      ⭐ That type of routers always define at the end,
       cause every declared parameter in url-address, it will think its value.
 
-      👉 Best alternative " request.params " for that app.param() method.
+      💞 Best alternative "request.params" for that app.param() method.
 
 
       Syntax:  🧬
 
-        app.param( "anyName", (request, response, middleware, anyNameV )=>{
+        app.param("anyName", (request, response, middleware, anyNameV )=>{
 
-            request.paramValue = anyNameV ;
+          request.paramValue = anyNameV;
 
-            middleware();
+          middleware();
         })
         
-        app.all( "/:anyName" , ( request, response)=>{ 
+        app.all("/:anyName", (request, response)=>{ 
 
           response.send( request.paramValue );
 
@@ -969,83 +979,96 @@ Chapter 7 : Application API ( app )   ✌️
       Example: 📝
 
         app.param("id",(request,response,next,value)=>{
-
-          const object = {
+                         
+          request.userInfo = {
 
             userId : value,
             userName : "Tangilur Rahman"
-
-          }  
-                         
-          request.userInfo = object;
+          };
 
           next();
-
         })
 
         app.get("/user/:id",(request,response)=>{
 
-            response.send(request.userInfo);
-
+          response.send(request.userInfo);
         });
 
 
-        Note: " /routes/:variable " and app.param( variable,callBack ),
+        ⭐ app.all("/router/:variable",callBack_Function) & app.param(variable,callBack_Function),
 
-         Here variableName must be same , it's work like event ( listener & action ).
+         🌿 Here variable_name must be same, it's work like event (listener & action).
          
-         When client define parameter in request url that parameter comes to " /:variable " and that variable related app.param()'s callback() function execute as a middleware.
+         When client define parameter in request url-address that parameter comes to "/:variable" and that variable related app.param()'s callback() function execute as a middleware.
 
-        Note: " next() "  is a middleware, we will learn about it in Middleware Chapter.
+        👉 "next()" is a middleware function, we will learn about it in Middleware Chapter.
 
 
-      # Get multiple parameter values ✅
+      #️⃣ Get multiple parameter values from url-address ✅
 
-      Example: 
+      Example:  📝
+
+      ⭕ Procedure 1:
+
+        app.param("id", (req, res, next, value) => {
+          req.id = value;
+          next();
+        });
+
+        app.param("name", (req, res, next, value) => {
+          req.name = value;
+          next();
+        });
+
+        app.get("/api/:id/:name", (req, res) => {
+          res.send(req.id + " " + req.name);
+        });
+
+
+      ⭕ Procedure 2: 
 
         let array = [];
 
         app.param(["id","name"],(request,response,next,value)=>{
 
-              array.push(value) 
+          array.push(value) 
               
-              request.userInfo = {
-                  id : array[0],
-                  name : array[1]
-              };
+          request.userInfo = {
+            id : array[0],
+            name : array[1]
+          };
 
-              next()    
+          next()    
         });
 
         app.get("/user/:id/:name",(request,response)=>{
 
-            response.send(request.userInfo);
+          array = [];
 
-            array = [];
+          response.send(request.userInfo);    
         });
 
+      👉 One by one parameter comes from url-address and then that app.param()'s callBack() function will be executed.
 
-      Note: One by One parameters comes from url and then that app.param()'s callBack() function will be executed.
-
-      👉 Above Example " app.param() " method will be execute at 2 times.
+      🍀 Above procedure 2 Example "app.param()" method will be execute at 2 times.
 
 
    
     9. app.route()  📌
 
-      Note: " app.route() " method used for create chainable route, 
+      🌿 "app.route()" method used for create chainable route, 
       
-      when the route is specified at a single location but need to define multiple HTTP methods with that same route. (as like shorthand nothing more )
+      when the route is specified at a single location but need to define multiple HTTP methods. (as like shorthand nothing more )
 
-      Note: Just define common route into "app.route() " method then only define multiple HTTP methods with middleware function which them want to applied with that route.
+      👉 Just define common route into "app.route()" method then only define multiple HTTP methods with middleware functions which them want to applied with that route.
 
 
       Syntax:  🧬
 
        app.route("/common/routes")
 
-        .get((request,response)=>{ })
-        .post((request,response)=>{ }))
+        .get(middleware,middleware,...)
+        .post(middleware,middleware,...)
         ...
 
 
@@ -1069,16 +1092,16 @@ Chapter 7 : Application API ( app )   ✌️
 
     10. app.use()  📌
 
-      Note: We already knew about " app.use() " method ,
+      Note: We already knew about "app.use()" method,
       more clarify at Middleware Chapter. ☢️
   
       
 
-Chapter 8 : Request Object  ✌️
+Chapter 8 : Request Object (req)  ✌️
 
-  Note: request object represents the HTTP request.
+  🌿 "req" object represents the HTTP request.
 
-  Note: Express JS request object inheritance with Node JS's request object and define into some more functionality,
+  ⭐ Express JS's request object inheritance with Node JS's request object and define into some more functionality,
    So that, Node JS request object's all properties & methods work as normal in Express JS.
 
     #️⃣ request object's all properties in Node JS 👌
@@ -1086,16 +1109,17 @@ Chapter 8 : Request Object  ✌️
       1. request.url
       2. request.method
       3. request.headers
-      4. request.on  ( HTTP Body )
+      4. request.on  ( insert data in request.body )
         
 
-  # request Object's some pre-define Importance properties In Express JS  ✅
+  #️⃣ request Object's all pre-define properties In Express JS  ✅
 
     1. request.baseUrl  📌
 
-      👉 That property store base route of sub-router. 
+      🌿 That property store base route of sub-router. 
 
-      Note: We already knew, we can create multiple sub-route through " express.Router() " method returned object.
+      Note: We already knew, we can create multiple sub-route through "express.Router()" method returned object.
+
 
       Note:
       
@@ -1117,82 +1141,81 @@ Chapter 8 : Request Object  ✌️
 
         admin.get("/",(request,response)=>{
 
-          console.log(request.baseUrl);    // " /admin "
-
+          console.log(request.baseUrl);    
+          
+            👉 "/admin"
         })
 
         app.get("/",(request,response)=>{
 
-          console.log(request.baseUrl);  // blank [ main route haven't base-Url(sub-router) ]
-
+          console.log(request.baseUrl);  
+          
+            👉 blank [cause it's main router]
         });
 
 
 
     2. request.originalUrl  📌
 
-      👉 That property as same as like " request.url " (Node JS) property,
+      🌿 That property as same as like "request.url" (Node JS) property,
         but it's more efficient with sub-router.
 
 
       Syntax : 🧬
 
-        🟢 request.url  => router + query
+        ⭕ request.url  => main_router + query
 
-        🟢 request.originalUrl  => sub_router + router + query
+        ⭕ request.originalUrl  => sub_router + main_router + query
         
 
-      Example : ( With Main Router ) [ SAME ]  📝
+      Example : With Main Router [ SAME ]  📝
 
-        url => localhost:3000/home?name=Tangil
+        🍀 url-address => localhost:3000/home?name=Tangil
 
         > app.get("/home",(req,res)=>{
 
-           log(request.url);   //  /home?name=Tangil
+          log(request.url);   //  /home?name=Tangil
 
-           log(request.originalUrl);  //  /home?name=Tangil
+          log(request.originalUrl);  //  /home?name=Tangil
 
         })
 
-      Example: ( with sub Router ) [DIFFERENT]  📝
 
-        url => localhost:3000/admin/dashboard?name=Tangil
+      Example: with sub Router [DIFFERENT]  📝
+
+        🍀 url-address => localhost:3000/admin/dashboard?name=Tangil
 
         > admin.get("/dashboard",(req,res)=>{
 
-           log(request.url);   //  /dashboard?name=Tangil
+          log(request.url);   //  /dashboard?name=Tangil
 
-           log(request.originalUrl);  //  /admin/dashboard?name=Tangil
-
+          log(request.originalUrl);  //  /admin/dashboard?name=Tangil
         }) 
 
 
     3. request.hostname  📌
 
-      👉 url.parse(' urlPath ',true).hostname === request.hostname
+      👉 url.parse("url-address", true).hostname === request.hostname
 
 
-        Example:  📝
+      Example:  📝
 
-          app.get("/dashboard",(request,response)=>{
+        app.get("/dashboard",(request,response)=>{
 
-            console.log(url.parse('http://localhost:3000/dashboard',true).hostname);
+          console.log(url.parse('http://localhost:3000/dashboard',true).hostname);
 
-            console.log(request.hostname);
-         
-          })
+          console.log(request.hostname); 
+        })
 
-        Output : localhost
+      👉 output : localhost
 
 
     4. request.path  📌
 
-      👉 url.parse(request.url,true).pathname  === request.path
+      👉 url.parse(request.originalUrl, true).pathname  === request.path
 
-      Note: That both properties store whole path after main router or sub-router without query. 
-      
-        Example :  /user/3 
-      
+      🌿 That both properties store whole path after main router or sub-router without query. 
+          
 
       Example:  📝
 
@@ -1200,60 +1223,64 @@ Chapter 8 : Request Object  ✌️
 
         > admin.get("/",(req,res)=>{
 
-           log(url.parse(request.url,true).pathname);   //    /dashboard
+          log(url.parse(request.url,true).pathname);   //  /dashboard
 
-           log(request.path);  //   /dashboard
+          log(request.path);  // /dashboard
 
         }) 
 
 
     5. request.query  📌
 
-      👉 url.parse(" urlPath ",true).query === request.query 
+      👉 url.parse(request.originalUrl, true).query === request.query 
       
       Example:  📝
 
-       url =>  http://localhost:3000/admin/dashboard?name=Tangil&age=23
+      🍀 url-address =>  http://localhost:3000/admin/dashboard?name=Tangil&age=23
       
 
        > admin.get("/dashboard",(request,response)=>{
 
-        console.log(url.parse(" http://localhost:3000/admin/dashboard?name=Tangil&age=23 ",true).query);
+        console.log(url.parse("http://localhost:3000/admin/dashboard?name=Tangil&age=23", true).query);
 
         console.log(request.query);
 
         response.send(request.query);
-    
-
        })
 
-       Output: {name : "Tangil", age : "23"}
+      👉 Output: {name : "Tangil", age : "23"}
 
 
     6. request.ip  📌
 
-      👉 That property store IP Address of that application.
+      🌿 That property store IP Address of that application.
 
       Example:  📝
 
         app.get("/",(req,res)=>{
           
-           log(request.ip);   // 127.0.0.1
-           
+          console.log(request.ip);   // 127.0.0.1   
         })
 
 
     7. request.protocol  📌
 
-      Note: Store protocol name ( http or https )
+      🌿 Store protocol name ( http or https )
+
+      Example:  📝
+
+        app.get("/",(req,res)=>{
+          
+          console.log(request.protocol);   // http   
+        })
 
 
     8. request.params  📌
 
-      👉 That property shorthand of " app.param() ", 
+      🌿 That property is shorthand of "app.param()", 
       return a object.
 
-      Note: That type of routers always define at the end,
+      👉 That type of routers always define at the end,
        cause every declared parameter in url-address, it will think its value.
 
 
@@ -1267,17 +1294,16 @@ Chapter 8 : Request Object  ✌️
           console.log(request.params.id);
           console.log(request.params.name);
 
-          response.send(request.params);
-            
+          response.send(request.params);       
         })
 
-      Output: { id : "23", name : "Tangilur" };
+      👉 Output: { id : "23", name : "Tangilur" };
 
 
 
     9. request.body  📌
 
-      Note: That property works with 
+      🌿 That property works with 
 
         1. express.json();
         2. express.raw();
@@ -1290,20 +1316,20 @@ Chapter 8 : Request Object  ✌️
 
     10. request.cookies  📌
 
-      👉 That property used for get cookies object from the HTTP Request Headers.
+      🌿 That property used for get cookies object from the HTTP Request Headers.
 
-      Note: Same procedure applied that way of sended data attach with " request.body " property.
+      👉 Same procedure applied that way of sended data insert into "request.body" property.
 
-      👉 At first, We need to install a third-party module in our application
+      ⭐ At first, We need to install a third-party module in our application
 
         > npm install cookie-parser
        
 
       Procedure : 🧬
 
-        > const cookies = require("cookie-parser");
+        > const cookieParser = require("cookie-parser");
 
-        > app.use(cookies());
+        > app.use(cookieParser());
 
         > log(request.cookies);  // whole cookies's object
 
@@ -1320,27 +1346,26 @@ Chapter 8 : Request Object  ✌️
 
           console.log(request.cookies);
 
-          response.send(request.cookies)
-            
+          response.send(request.cookies.auth)       
         });
 
         
     11. request.signedCookies  📌
 
-      👉 That property used for get encrypted cookies sended by the request.
+      👉 That property used for get encrypted cookies from the HTTP Request Headers.
 
       [ SAME PROCEDURE ]
 
 
 
-    12. request.app
+    12. request.app  📌
 
-      Note: Through that property we can access "app" object into exported modules.
+      Note: Through that property we can access "app" object's locals object.
 
-        👉 request.app.Something ; 
+        👉 request.app.locals; 
 
 
-    13. request.route 
+    13. request.route  📌
 
       👉 That property store whole information about that route into a object.
 
@@ -1348,18 +1373,16 @@ Chapter 8 : Request Object  ✌️
 
        app.get("/",(req,res)=>{
 
-          log(request.route);
-
+        console.log(request.route);
        });
 
 
 
-  # request object pre-define Importance method In Express JS  ✅
+  #️⃣ request object pre-define only one method In Express JS  ✅
 
+    1️⃣ request.get( HTTP Headers Key )  📌
 
-    1️. request.get( HTTP Headers Key )
-
-      👉 This method returns the value of the specific HTTP headers's key.
+      🌿 This method returns the value of the specific HTTP request headers's key.
 
       Example: 📝
 
@@ -1373,11 +1396,11 @@ Chapter 8 : Request Object  ✌️
 
 
       
-Chapter 9 : Response Object  ✌️
+Chapter 9 : Response Object (res)  ✌️
 
-  Note: response object represents the HTTP response.
+  🌿 "res" object represents the HTTP response.
 
-  Note: Express JS response object inheritance with Node JS's response object and define into some more functionality,
+  👉 Express JS response object inheritance with Node JS's response object and define into some more functionality,
    So that, Node JS response object's all properties & methods work as normal in Express JS.
 
 
@@ -1389,26 +1412,26 @@ Chapter 9 : Response Object  ✌️
       4. response.statusCode
         
 
-  # response object some pre-define Importance properties In Express JS  ✅
+  #️⃣ response object's all pre-define properties In Express JS  ✅
 
   
-    1. response.app
+    1. response.app  📌
 
-      👉 Through that property we can access "app" object into exported modules.
+      👉 Through that property we can access "app" object's locals object.
 
-      ⭐ same as like " request.app "
+      ⭐ same as like "request.app"
 
-        Example : response.app.Something ; 
+        👉 response.app.locals; 
 
 
 
-    2. response.headersSent
+    2. response.headersSent  📌
 
       👉 That property store Boolean value, if
 
-        🟢 response don't send  =>  false
+        ⭕ response didn't send  =>  false
 
-        🟢 response already sended  =>  true
+        ⭕ response already sended  =>  true
 
 
       Syntax:  🧬
@@ -1425,20 +1448,20 @@ Chapter 9 : Response Object  ✌️
           response.send(" i am sending response ")
 
           console.log(response.headersSent);   // true
-
         })
 
 
 
-  # response object some pre-define Importance methods In Express JS  ✅
+  #️⃣ response object's all pre-define methods In Express JS  ✅
 
 
     1. response.send()  📌
 
-      👉 " response.send() " as same as " response.end() " ,
-       but " response.send() " more efficient.
+      👉 "response.send()" as same as like "response.end()",
+       but "response.send()" is more efficient.
 
-      Note: " response.send() " method's parameter can be take a Buffer object, a String, an object, a Boolean, or an Array.
+
+      🌿 "response.send()" method's parameter can be take Buffer object, String, Object, Boolean or Array.
 
       Example:  📝
 
@@ -1456,51 +1479,49 @@ Chapter 9 : Response Object  ✌️
 
           })
 
-          #️⃣ With Object 
+          ⭐ With Object 
 
-          🟢 Every Object, At first convert to JSON then sended Response.
+          ⭕ Every object, At first convert to JSON then send response.
 
-          🟢 also set {"content-type" : "application/json"} into Response Headers
+          ⭕ Also set {"content-type" : "application/json"} into response headers.
 
 
-          output: 📝
+          👉 output: 📝
 
             {
-                "name": "Tangilur Rahman",
-                "age": 23,
-                "address": "Joypurhat"
+              "name": "Tangilur Rahman",
+              "age": 23,
+              "address": "Joypurhat"
             }
 
 
     2. response.json();  📌
 
-      Note: " response.json() " as same as " response.send() ",
-       but, " response.json(parameter) " === response.send( JSON.stringify( parameter ));
+      👉 "response.json()" as same as like "response.send()",
+       but, "response.json(parameter)" === response.send(JSON.stringify( parameter));
 
-      Note: " response.json() " method's parameter can be take any JSON type, including Object, Array, String, Boolean, Number, or null
+      🌿 "response.json()" method's parameter can be take any JSON type, including Object, Array, String, Boolean, Number or null.
 
-      🟢 and you can also use it to convert other Type to JSON.
+      ⭐ And we can also use it to convert other Type to JSON.
 
      
       Example:  📝
 
       app.get("/",(request,response)=>{
     
-        response.json(null)
+        response.json(null);
 
-        response.json({ user: 'tangil' })
+        response.json({ user: "tangil" });
 
-        response.status(500).json({ error: 'message' })
-
+        response.status(500).json({ error: "message" });
       })
 
       
-    
     3. response.sendFile( filePath )  📌
 
-      👉 That method used for send Response with any type of file ( html,txt,css,json etc )
+      👉 That method used for send response with any type of file ( html, txt, css, json etc)
 
-      👉 must be define full filePath.
+      ⭐ Must be define full filePath.
 
 
       Example:  📝
@@ -1508,15 +1529,14 @@ Chapter 9 : Response Object  ✌️
       app.get("/",(request,response)=>{
 
         response.sendFile(path.join(__dirname+"/index.html"));
-
       })
         
 
     4. response.redirect( [statusCode], path)  📌
 
-      👉 That method used for redirect any urlPath or routePath.
+      👉 That method used for redirect any urlPath to another urlPath.
 
-      Note: That [ statusCode ] parameter is OPTIONAL,
+      🌿 That [statusCode] parameter is OPTIONAL,
        If not specified, default statusCode is “302 Found”.
 
 
@@ -1524,21 +1544,20 @@ Chapter 9 : Response Object  ✌️
 
         app.get("/",(request,response)=>{
     
-          response.redirect('/admin/dashboard')
+          response.redirect("/admin/dashboard")
 
-          response.redirect('http://example.com')
+          response.redirect("http://example.com")
 
-          response.redirect(301, 'http://example.com')
+          response.redirect(301, "http://example.com")
 
-          response.redirect('../login')
+          response.redirect("../login")
 
         })
         
 
-    
     5. response.location( path )  📌
 
-      Note: That method used for sets Location key into HTTP Response Headers.
+      🌿 That method used for set Location key into HTTP Response Headers.
 
 
       Example:  📝
@@ -1554,38 +1573,38 @@ Chapter 9 : Response Object  ✌️
 
     6. response.status( code );  📌
 
-      👉 " response.statusCode = code " === response.status(code)
+      👉 "response.statusCode = code" === response.status(code)
 
-      Note: That method only used for set statusCode in Response Headers &
+      🌿 That method only used for set statusCode in Response Headers &
        it's also chainable with res.send() & res.json() methods.
 
       Syntax : 🧬
 
         > response.statue( code );
 
-        > response.statue( code ).send(" message ");
+        > response.statue( code ).send("message");
 
-        > response.statue( code ).json(" message ");
+        > response.statue( code ).json("message");
+
 
       Example:  📝
 
         app.get("/",(request,response)=>{
     
-          > response.status(300); | response.statusCode = 300;    // set
+          > response.status(300); || response.statusCode = 300;  // set
 
-          response.json(response.statusCode);   // get
+          > response.json(response.statusCode);   // get
 
           > res.status(400).send('Bad Request');
 
           > res.status(404).json('Not Found');
-
         })
 
         
 
     7. response.sendStatus( statusCode );  📌
 
-      👉 response.status(statusCode).send(status message) === response.sendStatus(statusCode);
+      👉 response.status(statusCode).send("status message") === response.sendStatus(statusCode);
 
       Example:  📝
 
@@ -1595,20 +1614,20 @@ Chapter 9 : Response Object  ✌️
 
         })
         
-        output: Not Found.
+        👉 output: Not Found.
   
         
 
     8. response.cookie( key, value, { object } )  📌
 
-      👉 That method used for set cookies into HTTP Response Headers.
+      🌿 That method used for set cookies into HTTP Response Headers.
 
       👉 must be define key & value,
        The value parameter may be a string or an object converted to JSON.
 
-      Note: In that Object parameter, we can define expires, domain, encode etc. [OPTIONAL]
+      👉 In that {Object} parameter, we can define expires, domain, encode etc. [OPTIONAL]
 
-      Note: If we don't specified expires's Object then
+      ⭐ If we don't specified expires's Object then
        created a session cookie.
 
       Example:  📝
@@ -1624,14 +1643,14 @@ Chapter 9 : Response Object  ✌️
 
     9. response.clearCookie( key )
 
-      👉 That method used for clear specific cookie by using 'key' which already stored into HTTP Response Headers.
+      🌿 That method used for clear specific cookie by using "key" which already stored into HTTP Response Headers.
 
 
       Example:  📝
 
         app.get("/",(request,response)=>{
  
-           response.clearCookie("rememberMe").end();
+          response.clearCookie("rememberMe").end();
 
         })
 
@@ -1639,21 +1658,25 @@ Chapter 9 : Response Object  ✌️
 
     10. response.set( key, value );  📌
 
-      👉 That method used for set HTTP Response Headers field with any key-value.
+      🌿 That method used for set HTTP Response Headers field with any key-value pairs.
 
       Example:  📝
 
-        response.set('Content-Type', 'text/plain')
+        app.get("/",(request,response)=>{
+ 
+          response.set("Content-Type", "text/plain")
 
-        response.set('name', 'Tangilur');
+          response.set("name", "Tangilur");
 
-      
+        })
+        
+         
 
     11. response.get( HTTP Headers Key )
 
-      👉 That method return the value of the specific HTTP Response Headers's key.
+      🌿 That method return the value of the specific HTTP Response Headers's key.
 
-      👉 same as like " request.get() "
+      👉 same as like "request.get()"
 
       Example:  📝
 
@@ -1676,46 +1699,45 @@ Chapter 9 : Response Object  ✌️
 
         app.get("/",(request,response)=>{
           
-          response.download('./report-12345.pdf')
+          response.download("./report-123.pdf")
   
         })
         
 
 
-
 Chapter 10 : Middleware  ✌️
 
-  Note: Middleware is a normal function which can access to request & response Objects and next function [callBack].
+  🌿 Middleware is a normal function which can access to request & response Objects and take a callBack_function. (3 parameters)
 
-  Note: It is those functions that are called BETWEEN processing the Request and sending the Response in our application.
+  👉 It is those functions which are called between processing the Request and sending the Response in our application.
 
-  Note: Middleware are the functions which work like a door between server's request & response.
+  👉 Middleware are the functions which work like a door between server's request & response.
 
-    👉 client send request => middleware => request object => response object => output
+    💞 client send request => middleware => request object => response object => output
 
-  Note: We can define multiple middleware between server's request & response.
+  ⭐ We can define multiple middleware between server's request & response.
 
-  Note: Every middleware have ability to send response from there or throws ERROR,
+  👉 Every middleware have ability to send response from there or throws ERROR,
    after that next middleware didn't work.
 
-  Note : In Express JS we can simply modify request & response object through middleware.
+  👉 In Express JS, we can also modify request & response object through middleware.
      
-  Note: Middleware mainly used to initialize request & response objects.
+  👉 Middleware also used to initialize request & response objects.
 
-  Note: Middleware is kind of event's action define function which fire with client request.
+  👉 Middleware is kind of event's action define function which fire with client request.
 
-   So, must be initialize it before call [ app.use( middleware ) or sub-router.use( middleware ) ] 
+   So, must be initialize it before call [app.use( middleware ) or sub-router.use( middleware )] 
      
-   cause we knew those event's action will be execute which them already registered.
+   cause we knew only those event's action will be execute which them already registered.
 
 
-  # A middleware Basic Features ✅
+  #️⃣ A middleware Basic Features ✅
 
     1. executes any code
 
-    2. can modify Request & Response Objects
+    2. can modify request & response Objects
 
-    3. can end Request/Response cycle  [res.send()]
+    3. can end request/response cycle  [res.send()]
 
     4. next() function is used to pass control to the next middleware function 
      
@@ -1724,23 +1746,23 @@ Chapter 10 : Middleware  ✌️
     5. throw & catch ERRORS.
 
 
-  # Types of middleware ✅
+  #️⃣ Types of middleware ✅
 
-    1. application-level middleware   [ app.use( middleware )  ]
+    1. application-level middleware   [app.use( middleware )]
 
-    2. router-level middleware    [ sub-router.use( middleware ) ]
+    2. router-level middleware    [sub-router.use( middleware )]
 
     3. error-handling middleware 
 
-    4. built-in middleware   [ express.json(), express.urlencoded()  etc...]
+    4. built-in middleware   [express.json(), express.urlencoded() etc...]
 
-    5. third-party middleware  [ cookie-parser  etc... ]
+    5. third-party middleware  [cookie-parser  etc...]
   
 
   
-  # create application-level middleware  ✅
+  #️⃣ create application-level middleware  ✅
 
-    Note: " app.use( middleware ) " is a method that allows us to called application-level middleware,
+    🌿 "app.use( middleware )" is a method that used to called application-level middleware,
 
      & impact into whole application ( request & response object )
      
@@ -1754,7 +1776,6 @@ Chapter 10 : Middleware  ✌️
         // do something with request & response
 
         next();
-
       }
 
       app.use(funName);
@@ -1764,56 +1785,61 @@ Chapter 10 : Middleware  ✌️
 
       const funName  = (req,res,next)=>{
 
-        const reqDetails = (`${new Date(Date.now()).toLocaleString()} - ${req.method} - ${req.originalUrl} `);
+        const reqDetails = (`${new Date(Date.now()).toLocaleString()} - ${req.method} - ${req.originalUrl}`);
  
         request.reqDetails = reqDetails;
 
         next();
-
       };
 
       app.use( funName );
 
-    👉 Now, that " request.reqDetails " property we can access from everywhere in our application.
+    👉 Now, that "request.reqDetails" property we can access from everywhere in our application.
 
 
-   # next()  ✅
+  #️⃣ next()  ✅
 
-    Note: Instead of " next " callBack_Function's name anything we can define.
+    👉 Instead of "next" callBack_Function's name anything we can define.
 
-    Note: " next() " function simply means that middleware work has been finished then pass control to another middleware.
+    🌿 "next()" function simply means that middleware work has been finished then pass control to another middleware.
 
-     So that, It must be declare always at the end as like " return " statement.
+     So that, it must be declare always at the end as like "return" statement.
 
-    👉 If we don't want to pass control another middleware then no need to declare " next() " Function at the end, 
+    👉 If we don't want to pass control another middleware then no need to declare "next()" function at the end, 
      even no need to declare it at parameter also. [ APPLICABLE ALWAYS ]
 
 
+    ⭐ We can also throws ERROR by using next(ERROR) function,
+     inside next() function write anything, it become an ERROR.
+     
+
     Example:  📝
 
-      app.get('/', (req, res, next) => {
-        req.message1 = 'one';
+      app.get("/", (req, res, next) => {
+
+        req.message1 = "one";
         
         next();
       });
 
       const funName = (req, res, next) => {
-        req.message2 = 'two';
+
+        req.message2 = "two";
 
         next();
       };
 
-      app.get('/', funName, (req, res) => {
-        req.message3 = 'three';
+      app.get("/", funName, (req, res) => {
+        req.message3 = "three";
         
-        res.send(req.message1 + ' ' + req.message2 + ' ' + req.message3);
+        res.send(req.message1 + " " + req.message2 + " " + req.message3);
       });
     
 
  
-  # create router-level middleware  ✅
+  #️⃣ create router-level middleware  ✅
 
-    Note: That middleware only applied in specific sub-router. 
+    🌿 That middleware only applied within specific that sub-router. 
 
     Example :  📝
 
@@ -1823,114 +1849,104 @@ Chapter 10 : Middleware  ✌️
 
       const subRoute = express.Router();
 
-      app.use('/sub', subRoute);
-
       const middleware = (req, res, next) =>{
       
-        res.reqDetails = " I am router-level middleware ";
+        res.variable = "I am router-level middleware";
 
-        next();
-        
+        next();  
       }
 
       subRoute.use(middleware);  ✨
 
       subRoute.get("/",(req,res)=>{
 
-        res.send(res.reqDetails); ✨
-
+        res.send(res.variable); ✨
       })
 
-      app.get("/",(request,response)=>{
-          
-        response.end();
-      })
+      app.use("/sub", subRoute);
 
-      app.listen(3000,()=>console.log("i am running at 3000 port"))
+      app.listen(3000,()=>console.log("I am running at 3000 port"))
   
 
 
-  # create middleware for specific Router  ✅
+  #️⃣ create middleware for specific route  ✅
 
-    Note: That kind of middleware only applied with specific Router. 
+    👉 That kind of middleware only applied within specific route. 
+
 
     Example:  📝
 
-      const middleware = (req,res,next)=>{
-
-        console.log("i am middleware");
-        next();
-
-      }
-
       const middleware1 = (req,res,next)=>{
 
-          console.log("i am middleware 1");
+        console.log("I am middleware 1");
+        next();
+      }
+
+      const middleware2 = (req,res,next)=>{
+
+          console.log("I am middleware 2");
           next();
 
       }
 
-      app.get('/', middleware,middleware1,(req, res) => {
+      app.get('/', middleware1,middleware2,(req, res) => {
         
         res.send("hello");
-
       });
 
-      app.listen(3000);
+      app.listen(3000,()=>console.log("I am running at 3000 port"));
 
     
-    Note: We can define multiple middleware into any specific router whatever we want,      
+    ⭐ We can define multiple middleware into any specific route whatever we want,      
      Just separate them by using comma(,)
 
 
 
-  # ERROR-handling middleware ✅
+  #️⃣ ERROR-handling middleware ✅
 
-    🟡 Synchronous Error Handler
+    ⭕ Synchronous Error Handler
 
-    Note: In Express JS, compiler by Default can handle any type of Synchronous Error.
+    🌿 In Express JS, compiler by default can handle any type of synchronous ERROR.
 
-    Note: Express comes with a built-in Error handler that takes care of any Synchronous Errors that might be encountered in our application. This default error-handling middleware function is added at the end of the middleware function stack.
+    🌿 Express comes with a built-in ERROR handler that takes care of our any synchronous ERROR that might be encountered in our application. This default ERROR-handling middleware function is added at the end of the middleware function stack.
 
-     If we pass an error inside next(error) function and we can't handle it in a custom own error handler, it will be handled by the built-in error handler.
+     If we pass an ERROR inside next(ERROR) function and we can't handle it in a custom own ERROR handler, it will be handled by the built-in ERROR handler.
 
-     The error will be written to the client(browser) with the stack trace (error.message). The stack trace is not included in the production environment.
+     The ERROR will be display in the browser with the stack trace (ERROR.message) [development mode]. The stack trace is not included in the production environment.
 
 
-    Note: 
+    🌿 Procedure of throw ERROR 
 
       next()  => everything is ok.
       
-      next(" ERROR message ");
+      next("ERROR message");
 
       throw new Error("ERROR message");
 
       next(throw new Error("ERROR message"))
 
 
-    Example: ( Default Error Handler By Express JS )  📝
+    #️⃣ Imagination: Default Error Handler By Express JS  📝
 
-    🟠 index.js 
+    ⭕ index.js 
 
       const express = require("express");
       const app = express();
 
       app.get("/",(request,response,next)=>{
 
-        > throw new Error(" something was wrong " );
+        > throw new Error("something was wrong" );
 
-        > next(" something was wrong ")
+        > next("something was wrong")
 
-        > next(throw new Error(" something was wrong " ));
-
-
+        > next(throw new Error("something was wrong" ));
       });
 
       .......................
       ....................... 
       ....................... 
 
-      [ In Background at the END By Default ] 💫
+      [In Background at the END By Default] 💫
 
       const defaultErrorHandler = (error,req,res,next)=>{
 
@@ -1942,58 +1958,61 @@ Chapter 10 : Middleware  ✌️
 
     
 
-    # If want, Override Default ERROR handler & Create By Own Handler ✅
+    #️⃣ If we want, Override Default ERROR handler & Create By Own Handler ✅
 
-      Note: We can also define own Error Handler Middleware, it might be override Default ERROR Handler Middleware.
+      🌿 We can also define own ERROR Handler Middleware, it might be override Default ERROR Handler Middleware.
 
-      👉 Remember, Every Error Handler Middleware always define at the end in our application.
+      ⭐ Remember, Every ERROR Handler Middleware always define at the end in our application.
 
-      👉 If we define own Error Handler Middleware, even then Default Error Handler Middleware also exists after that.
+      ⭐ If we define own ERROR Handler Middleware, even then Default ERROR Handler Middleware also exists after that.
 
 
     Syntax:  🧬
       
       app.get("/",(request,response,next)=>{
 
-        > throw new Error(" something was wrong " );  
+        > throw new Error("something was wrong");  
         
           👉 attach with ERROR Object
 
-        > next(" something was wrong ");  
+        > next("something was wrong");  
         
-          👉 handle by Default Error Handler
+          👉 handle by Default ERROR Handler [we can't]
 
-        > next(throw new Error(" something was wrong " )); 
+        > next(throw new Error("something was wrong")); 
         
           👉 attach with ERROR Object
-
-
       });
 
-      const ownErrorHandler = ( error,request,response,next )=>{
+      const ownErrorHandler = ( error, request, response, next )=>{
 
         if(error){
           
-          > res.status(500).send(error.message);  ⭐ for new Error("error message")
+          > res.status(500).send(error.message);  
+          
+            ⭐ for new Error("error-message")
 
-          > res.status(500).send("message");  ⭐ for new Error("error message")
+          > res.status(500).send("write any-message"); 
+          
+            ⭐ for new Error("error-message")
 
         }else{
 
-          return next(error);  ⭐ send that Error Default Error Handler.
+          next(error);  ⭐ send that ERROR Default ERROR Handler.
         }
       }
 
-      👉 In ownErrorHandler, must be define 4 parameters whether used or not,    
+
+      ⭐ In ownErrorHandler function, must be define 4 parameters whether used or not,    
        It's identifier for Express JS compiler.
 
       Note: 
       
-        🟢 If throwing Error by using " next("error message") " then we can't handle it,
-          cause " next("error") " simply means with that Error pass to control next middleware, but didn't attach that Error into ERROR Object,
+        ⭕ If throwing Error by using "next("error-message")" then we can't handle it,
+          cause "next("error-message")" simply means with that ERROR pass to control next middleware, but didn't attach that ERROR into ERROR Object,
           👉 It only can handle by Default Error Handler.
 
-        🟢 If throwing Error by using " throw new Error("error message") " then that Error will be attach into ERROR Object,
+        ⭕ If throwing ERROR by using "throw new Error("error-message")" then that ERROR will be attach into ERROR Object,
           👉 It could be handle it by using our own Error Handler.
 
 
@@ -2009,19 +2028,22 @@ Chapter 10 : Middleware  ✌️
 
       app.get("/",(request,response,next)=>{
           
-            if(true){
-              next("I am not attach with ERROR Object")
-            }else{
-              throw Error(" I am attach with ERROR Object ")
-            }
+        if(true){
+
+          next("I am not attach with ERROR Object")
+
+        }else{
+
+          throw Error("I am attach with ERROR Object")
+        }
       })
 
-      const ownErrorHandler = (error, request,response,next) =>{
+      const ownErrorHandler = (error, request, response, next) =>{
 
         > if(error){
             res.status(500).send(error.message)          
           }else{
-            return next(error);
+           next(error);
           }
       }
 
@@ -2030,19 +2052,19 @@ Chapter 10 : Middleware  ✌️
       app.listen(3000,()=>console.log("i am running at 3000 port"))
 
 
-    Note: Only 1️⃣ own ERROR-handling middleware is enough for whole application.
+    ⭐ Only 1️⃣ own ERROR-handling middleware is enough for whole application.
      & even default ERROR-handling middleware is already there.
 
 
 
-    # Handle 404 File Not Found Error ✅
+  #️⃣ Handle 404 File Not Found ERROR ✅
 
-      Note: Our own ERROR-handler middleware can't catch directly " 404 Not Found " ERROR,
+      🌿 Our own ERROR-handler middleware can't catch directly "404 Not Found ERROR",
        but Default ERROR-handler middleware can catch.
  
-      Note: If we want to catch " 404 Not Found " ERROR by own then use " app.use() " method.
+      👉 If we want to catch "404 Not Found ERROR" by own then use "app.use()" method.
 
-      👉 It's must be define at the end but before our own ERROR-handling middleware.
+      ⭐ It's must be define at the end but before our own ERROR-handling middleware.
 
 
       Syntax : 🧬 
@@ -2060,80 +2082,71 @@ Chapter 10 : Middleware  ✌️
 
         > throw new Error("File Not Found");
 
-      })
+       })
 
-      👉 From here If we are throwing ERROR by using next("error") or throw Error("error"),
+      👉 From here, If we are throwing ERROR by using {throw Error("error-message")},
        then our own ERROR-handling middleware can catch it. 
 
 
   
-    🟡 Asynchronous Error Handler
-
-    # Error Handling with asynchronous Items  ✅
+  ⭕ Asynchronous ERROR Handler
     
-      Note: By Default Express JS doesn't handle asynchronous item's ERROR,
-       so we need to handle them manually.
-
-      Syntax : 
-      
-        🟢 next("error")
-
-        🟢 try{ ... }catch(error){  next("error") }
+    🌿 By Default Express JS can't handle asynchronous item's ERROR,
+     so we need to handle them manually.
 
 
-      Example:  📝
+    Example:  📝
 
-        app.get('/', (req, res, next) => {
+      app.get("/", (req, res, next) => {
   
-              fs.readFile("./file-doesn't exist","utf-8",(error,data)=>{
+        fs.readFile("./file_path","utf-8",(error,data)=>{
 
-                if(error){
+          if(error){
 
-                  🟢 next("Read File doesn't exist")
+           next("Read File doesn't exist");
+           
+          }else{
+            response.send(data)
+          }
 
-                }else{
-                  response.send(data)
-                }
-
-              })
-        });
-
-
-      👉 Now we can handle that Error by using Default ERROR-handler middleware. 
-
-      ⚠️ If we used here " throw new Error("error") " then our application will be crushed,
-       so must be used " next("error") " with asynchronous items for catch ERROR.
-
-       So, asynchronous item's Error, we can't handle it by our own Error-Handler middleware.
+        })
+      });
 
 
-  👉 When we are throwing new ERROR in any way, that ERROR from here directly comes to our own ERROR-handler or Default Error-Handle middleware and execute it.
+    👉 Now, we can handle that Error by using Default ERROR-handle middleware or own ERROR-handle middleware. 
+
+    ⚠️ If we declare here "throw new Error("error-message")" then our application will be crushed,
+      so must be declare "next("error-message")" with asynchronous items for catch ERROR.
+
+
+    ⭐ When we are throwing ERROR in any way, that ERROR from there directly comes to our own ERROR-handler or Default Error-Handle middleware and execute it.
     between them everything would be skipped.
 
 
- 😎 We already knew about build-in & third-party Middleware 😎
+😎 We already knew about build-in & third-party Middleware 😎
 
 
 
 Chapter 11 : Router  ✌️
 
-  # main Router  ✅
+  #️⃣ main Router  ✅
 
-    👉 " const app = express(); "
+    👉 const app = express();
 
-     here app object get BY DEFAULT all HTTP methods,
-     so that, we can create router by using the " app " Object.
+     that "app" object get by default all HTTP methods,
+     so that, we can create multiple route by using that Object.
 
-      Example:  📝
+    Example:  📝
 
-        app.get(),  app.post(),  app.all() etc...
+      app.get(),  app.post(),  app.all() etc...
     
 
-  # express.Router();  ✅
+  #️⃣ express.Router();  ✅
 
-    Note: " express.Router() " method return a object which used to create a new sub-router. 
+    🌿 "express.Router()" method return a object which is a new sub-router. 
 
-    👉 We can declare multiple " express.Router() " method for create multiple sub-router in our application.
+    👉 We can create multiple sub-router in our application by using "express.Router()" method.
+
 
     Syntax:  🧬
 
@@ -2143,52 +2156,52 @@ Chapter 11 : Router  ✌️
 
       const subRouter = express.Router();
 
-      subRouter.httpMethod( " /route " , (request,response, [ middleware ]) =>{} );
+      subRouter.httpMethod( "/route, (request,response, [middleware])=> {});
 
     
-    #️⃣ Same thing we can also do by using " app.httpMethod() " ,
-     then why should we used sub-router ?  ✅
+    ⭐ Same thing we can also do by using "app.httpMethod()",
+     then why should we used sub-router?  ✅
 
-     👉 The main purpose of using sub-router is that we can separate our application into multiple modules 
+     👉 The main purpose of using sub-router is that we can separate our application into multiple modules
      
-      & sub-router doesn't listen() method so, all sub-router are work at a same port.
+      & sub-router doesn't have listen() method so, all sub-router are work at a same port.
 
       
-    # add sub-router into main router ✅
+    #️⃣ add sub-router into main router ✅
 
       Syntax : 🧬
 
         app.use("/route", Sub_Router);
 
     
-      🟢 app.get("/home",(req,res)=>{});
+      ⭕ app.get("/home",(req,res)=>{});
 
         Mean: When client request at "/home" route & method === "GET" then execute that callBack Function.
 
 
-      🟢 app.use("/home",(req,res)=>{});
+      ⭕ app.use("/home",(req,res)=>{});
 
         Mean: When client request at "/home" route & any HTTP methods then execute that callBack Function.
          
 
-      🟢 app.use((req,res)=>{});
+      ⭕ app.use((req,res)=>{});
 
         Mean: When client request at any router & any HTTP methods then execute that callBack Function.
 
 
-      🟡 app.use("/sub",subRouter);
+      ⭕ app.use("/sub",subRouter);
 
-        Mean: When client request at "/sub" then execute that callBack Function which is a sub-router. [ pass control to sub-router ]
+        Mean: When client request at "/sub" then execute that callBack function which is a sub-router. [pass control to sub-router]
 
         👉 We can add multiple sub-router into a main router.
 
         
-    👉  " /* " means accept any router's name.
+     👉  "/*" means accept any route's name.
 
 
     Example: 📝
 
-    🟠 cat.js  
+    ⭕ cat.js  
 
       const express = require("express");
 
@@ -2203,6 +2216,7 @@ Chapter 11 : Router  ✌️
 
         response.send("i am cat about page ");
       })
+
       cat.get("/service",(request,response)=>{
 
         response.send("i am cat service page ");
@@ -2211,14 +2225,14 @@ Chapter 11 : Router  ✌️
       module.exports = cat;
 
 
-    🟠 index.js  
+    ⭕ server.js  
 
       const express = require("express");
       const app = express();
 
-      const dog = require("./routes/dog")
-      const cat = require("./routes/cat")
-      const human = require("./routes/human")
+      const dog = require("./router/dog")
+      const cat = require("./router/cat")
+      const human = require("./router/human")
 
       app.use("/animal/dog", dog);
       app.use("/animal/cat", cat);
@@ -2226,27 +2240,20 @@ Chapter 11 : Router  ✌️
 
       app.get("/",(request,response)=>{
 
-          response.send("<h1>I am Home page 1</h2>")
-          
+        response.send("<h1>I am Home page 1</h2>")    
       });
 
       app.use((request,response)=>{
 
-          response.send("<h2> 404 Not Found </h2>");
-          
+        response.send("<h2> 404 Not Found </h2>");      
       });
 
 
       app.listen(3000,()=>console.log("i am running at 3000 port"));
 
 
-
-  # sub-router some pre-define methods  ✅
-
-    👉 Almost all "app" Object's methods are applicable with sub-router. 
-
+  ⭐ Almost all "app" Object's methods & properties are applicable with every sub-routers. 
 
 
 😊 END 😊
-
 */

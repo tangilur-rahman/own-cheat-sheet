@@ -638,54 +638,58 @@ Chapter 5 : File System Module ( fs ) ✌️
   
 Chapter 6 : Operating System ( os ) ✌️
 
-  Note: " os " one of the built-in module in Node JS.
+  Note: "os" one of the built-in module in Node JS.
 
-  Note: The " os " module provides information about the pc or server's operating system.
+  Note: The "os" module provides information about the pc or server's operating system.
 
   Syntax :  🧬
     
-    let os = require(" os ");
+    let os = require("os");
 
   
-  # " os " module some pre-define methods  ✅
+  #️⃣ "os" module some pre-define methods  ✅
 
-    1. useInfo()  📌
+    1. userInfo()  📌
      
-      Note: Returns information about the current user.
+      👉 Returns information about the current user.
 
     2. totalmem()  📌
 
-      Note: Returns the number of total memory of the system. [octal format]
+      👉 Returns the number of total memory of the operating-system. [octal format]
 
     3. freemem()  📌
 
-      Note: Returns the number of free memory of the system.
+      👉 Returns the number of free memory of the operating-system.
 
     4. hostname()  📌
 
-      Note: Returns the hostname of the operating system
+      👉 Returns the hostname of the operating-system
 
-      and more...
+    5. homedir()  📌
+
+      👉 Returns the home-directory of the operating-system
+
+    and more...
 
 
 
 Chapter 7 : Path ✌️
 
-  Note: " path " one of the built-in module in Node JS.
+  Note: "path" one of the built-in module in Node JS.
 
-  👉 " path " module mainly used with file path.
+  👉 "path" module mainly used with file path.
 
 
   Syntax:  🧬
 
-    let path = require(" path ");
+    const path = require("path");
 
   
-  # " path " module some pre-define methods  ✅
+  #️⃣ "path" module some pre-define methods  ✅
 
-    1. extname()  📌
+    1. extname(path_address)  📌
 
-      Note: Return the file extension of that given path.
+      🌿 Return the file extension of that given path.
 
       Example:  📝
 
@@ -693,152 +697,151 @@ Chapter 7 : Path ✌️
 
         console.log(path.extname("index.js"));        
         
-        output : .js
+        👉 .js
 
 
-    2. dirname()  📌
+    2. dirname(path_address)  📌
 
-       Note: Return the directory of that given path.
+      🌿 Return the directory of that given path.
 
        Example:  📝
 
-        const directory = path.dirname('user/name/tangilur/file.js');   
+        console.log(path.dirname("user/name/tangilur/file.js"));   
         
-        output: user/name/tangilur
+        👉 user/name/tangilur
 
 
-    3. basename()  📌
+    3. basename(path_address)  📌
 
-       Note: Return the last part of that given  path.
+      🌿 Return the last part of that given  path.
        
-        👉 fileName with extension.
+        🍀 fileName with extension.
 
        Example:  📝
         
-        let lastPart = path.basename(" js/tangilur/last-part.js ");     
+        console.log(path.basename("js/tangilur/last-part.js"));     
         
-        output : last-part.js        
+        👉 last-part.js        
 
 
-    4. join()  📌
+    4. join(path_address)  📌
 
-      Note: Join any specified path with another path.
+      🌿 Join any specified path with another path.
 
       Example: 📝
 
-        let joinPath = path.join(__dirname + "/index.js");
+        const joinPath = path.join(__dirname + "/index.js");
 
-        console.log( joinPath );
+        console.log(joinPath);
 
-    Note: ( ./../file  ) means " file " add before one step .
+    👉 ( ./../file  ) means "file" add before one step.
 
         
-    5. parse()  📌
+    5. parse(path_address)  📌
 
-      Note: Return a object of that given path.
+      🌿 Return a object of that given path.
 
       Example:  📝
 
-        let path = require( "path" );
+        const path = require("path");
 
-        let pathAddress =  "C:\Users\Tangilur-Rahman\Learn JavaScript/index.js";
+        const pathAddress =  "C:\Users\Tangilur-Rahman\Learn JavaScript/index.js";
 
+        let pathObject = path.parse(pathAddress);
 
-        let pathObject = path.parse( pathAddress );
-
-        console.log( pathObject );
+        console.log(pathObject);
 
        
 
 Chapter 8 : URL ✌️
 
-  Note: " url " one of the built-in module in Node JS, which help to play with url-address. 
+  Note: "url" one of the built-in module in Node JS, which help to play with url-address. 
 
   Syntax:  🧬
 
-    let url = require(" url ");
+    const url = require("url");
 
 
-  # url Syntax : ✅
+  URL Address Example :  📝
 
-    🟢 domainName/pageName?key=value&key=value&... 
+    🍀 domainName/pageName?key=value&key=value&... 
 
       Note: 
         
-        ? =>   start query string
+        ? =>  start query string
         
-        & =>   add multiple parameter
+        & =>  add multiple query-parameter
 
         blank-space =>  %20
     
      
-  # " url " module's important one method  ✅
+  #️⃣ "url" module's important one method  ✅
 
-    1️⃣ parse()
+    1️⃣ parse(url_address,[OPTION])
 
-      Note: Return a object of that URL.
+      🌿 Return a object of that URL.
 
       Syntax:  🧬
 
         const object = url.parse( "url-path", true );
         
-        👉 Here " true " means tell that compiler, We want to get Query Object also which attach with that url. [OPTIONAL]
+        👉 Here "true" means tell that compiler, we want to get query-object also which attach with that url. [OPTIONAL]
 
 
       Example: 📝
         
-        let url = require( "url" );
+        const url = require("url");
 
-        let urlAddress =  "http://localhost:80/user/details?country=Bangladesh&city=Joypurhat";
+        const urlAddress = "http://localhost:80/user/details?country=Bangladesh&city=Joypurhat";
 
-        let urlObject = url.parse(urlAddress ,true);
+        const urlObject = url.parse(urlAddress ,true);
 
       
-      # That UrlObject has Some properties ✅
+      ⭕ That UrlObject has Some properties ✅
 
         1. log(urlObject);   📌  
         
-          Note: That Object stored all info about that url.
+          🌿 That Object stored all information about that url.
 
 
         2. log(urlObject.host);   📌 
         
-          Note: Return hostName + portNumber
+          🌿 Return hostName + portNumber
 
-          output: localhost:80
+          👉 localhost:80
 
 
         3. log(urlObject.hostname);  📌
         
-          Note: Return only hostName
+          🌿 Return only hostName
 
-          output: localhost
+          👉 localhost
 
 
         4. log(urlObject.pathname);  📌 
         
-          Note: Return pathName which have after hostName
+          🌿 Return pathName which have after hostName
 
-          output : /user/details
+          👉 /user/details
 
         
         5. log(urlObject.search);  📌 
         
-          Note: Return a Query String 
+          🌿 Return full query-string 
 
-          output: ?country=Bangladesh&city=Joypurhat
+          👉 ?country=Bangladesh&city=Joypurhat
 
 
         6. log(urlObject.query);   📌
           
-          Note: Return a Query Object
+          🌿 Return that query-object
 
-          output :  { country: 'Bangladesh', city: 'Joypurhat' }
+          👉  { country: "Bangladesh", city: "Joypurhat" }
           
 
         7. log(urlObject.query.city); 📌
         
-          output: Joypurhat
+          👉 Joypurhat
 
 
 
