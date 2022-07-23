@@ -1,14 +1,12 @@
-
 /*
-
 ❤️❤️❤️ MongoDB & Mongoose ❤️❤️❤️
 
 Chapter 1 : What is Database ?  ✌️
 
-  Note: Databases are used for storing, maintaining and accessing any sort of data.
+  🌿 Databases are used for storing, maintaining and accessing any sort of data.
 
 
-  # Types of DataBase  ✅
+  #️⃣ Types of DataBase  ✅
 
     1. Relational Database Management System ( RDBMS )   📌
 
@@ -24,11 +22,11 @@ Chapter 1 : What is Database ?  ✌️
       Example: MongoDB etc.
 
 
-  # different between RDBMS VS MongoDB  ✅
+  #️⃣ different between RDBMS VS MongoDB  ✅
 
     RDBMS : multiple related tables combination built a RDBMS Database.
 
-    MongoBD : Each document specifically store one thing information. 
+    MongoBD : Each document specifically store only one thing information. 
 
 
     RDBMS    =>   MongoDB
@@ -46,29 +44,29 @@ Chapter 1 : What is Database ?  ✌️
      but called it BSON cause in Binary format storing Data.
 
 
-    Note: We can use RDBMS with Node JS or Express JS,  
-     but prefer to use MongoDB cause MongoDB's NoSQL syntax are similar to JSON & easy to maintain.
+  Note: We can use RDBMS with Node JS or Express JS,  
+   but prefer to use MongoDB cause MongoDB's NoSQL syntax are similar to JSON & easy to maintain.
 
 
 
 Chapter 2 : Setup MongoDB on localhost  ✌️
 
-  Note: For localhost, At first need to install MongoDB software on our PC,
-   then attach that " bin " folder in " System Environment Variables "
+  👉 For localhost, At first need to install MongoDB software on our PC,
+   then attach that "bin" folder in "System Environment Variables".
 
-  Note: By Default In localhost, MongoDB's all Data storing in " data " folder where we already installed mongoDB software, but we can change it.
+  👉 By Default in localhost, MongoDB's all Data storing in "data" folder where we already installed mongoDB software, but we can change it.
   
     mySetUP =>  C:\Database\mongodb\data  
 
 
-  🟡 Start mongoDB's server on localhost by using CMD 🟡
+  ⭐ Start mongoDB's server on localhost by using CMD
 
     > mongo
 
 
 Chapter 3 : CRUD Operation in MongoDB  ✌️
 
-  # Basic CRUD Commands  ✅
+  #️⃣ Basic CRUD Commands  ✅
 
     1. Show All Databases  📌
 
@@ -90,165 +88,164 @@ Chapter 3 : CRUD Operation in MongoDB  ✌️
 
 
 
-  🟢 CREATE 
+  ⭕ CREATE 
 
     Syntax :  🧬
 
-      🌿 insertOne( {document} )  | insertMany( [documentsArray] )
+      🌿 insertOne({document}) ❗ insertMany([documentsArray])
 
       👉 No Need to define Condition inside those methods.
 
     5. create a new collection with insert one document  📌
 
-      > db.collection.insertOne( {document} );
+      > db.collection.insertOne({document});
 
       👉 We can insert one Object or JSON,
        If we inserted Object then convert it to JSON format then stored.
 
 
-      Note: No need to create collection separately, Just declare collection-name with insertOne() or insertMany() methods,
+      ⭐ No need to create collection separately, Just declare collection-name with insertOne() or insertMany() methods,
 
        automatically created collection with that collection-name in Database
       or, if already exists then used that collection.
 
 
-      👉 With every document MongoDB attach by default a universal unique "_id".
+      👉 With every documents, MongoDB attach a universal unique "_id" by default.
 
 
 
     6. Create a new collection with insert many documents  📌
 
-      > db.collection.insertMany( [documentsArray] );
+      > db.collection.insertMany([documentsArray]);
 
-      Note: We can insert a Array which have documents of collection.
+      👉 We can insert a Array which have documents of collection.
 
 
 
-  🟢 READ
+  ⭕ READ
 
     Syntax :  🧬
 
-     🌿 findOne( {conditionForFind} )  |  find( {conditionForFind} ) 
+     🌿 findOne({conditionForFind}) ❗ find({conditionForFind}) 
       
-    👉 Inside " findOne() & find() " methods, we can define conditions's Object [OPTIONAL]
+    👉 Inside "findOne() & find()" methods, we can define conditions's Object [OPTIONAL].
 
-    ⚠️  If don't want select all documents, then define condition.
+    ⚠️  If we don't want to get all documents, then define condition must.
 
 
     7. When want to get one document from collection  📌
 
-        > db.collection.findOne( {conditions} );
+      > db.collection.findOne({conditions});
 
       👉 return a JSON.
 
       👉 If that condition was matching with multiple documents,
-       even return only one 1st matched document.[ cause findOne() ]
+       even return only one 1st matched document. [cause findOne()]
 
 
     8. When want to get multiple documents from collection  📌
 
-      > db.collection.find( {conditions} );
+      > db.collection.find({conditions});
 
-      👉 return a Array which store all of them documents that matched with conditions.
+      👉 return a Array which store all of them documents that matched with the condition.
 
       👉 When we want to get all documents from that collection, 
        NO NEED to define any condition.
 
 
-    9. If we want to control showing Fields  📌
+    9. If we want to control showing fields  📌
 
-      > db.collection.findOne( {condition} ,{"key" : 0 || 1,... });
+      > db.collection.findOne({condition}, {"key" : 0 || 1,...});
 
-      > db.collection.find( {condition} ,{"key" : 0 || 1,... });
-
+      > db.collection.find({condition}, {"key" : 0 || 1,...});
 
       Note: 
       
-        🟢 0 means don't display
+        🍀 0 means don't display
 
-        🟢 1 means display   [ DEFAULT ]
+        🍀 1 means display   [ DEFAULT ]
 
-      Note: can define multiple field's keys.
+      👉 We can define multiple field's keys.
 
       👉 Condition must be define, even haven't any condition then declare => {},
-       cause it must be define 2nd parameter.
+       cause it must be define at 2nd parameter.
 
         ⚠️ condition = {} => for select all documents.
       
 
-  🟡 " pretty() & limit() & skip() " methods only work with " db.collection.find() " method 🟡
+  ⭐ "pretty() & limit() & skip()" methods only work with "db.collection.find()" method 
 
 
-    10. display a collection's documents through pretty format  📌
+    10. displaying a collection's documents through pretty format  📌
 
-      > db.collection.find( {conditions} ).pretty()
+      > db.collection.find({conditions}).pretty()
 
-      👉 " pretty() " method just used for display documents in pretty format,
+      👉 "pretty()" method just used for displaying documents in pretty format,
         nothing else.    
 
 
     11. If we want to display limited documents from multiple documents  📌
 
-      > db.collection.find( {conditions} ).pretty().limit(number)
+      > db.collection.find({conditions}).pretty().limit(number)
 
-      Note: pretty() OPTIONAL but find() must be define.
+      👉 pretty() OPTIONAL but find() must be define.
 
 
     12. If we want to display documents through skipping some documents  📌
 
       > db.collection.find().limit(number).pretty().skip(number)
 
-      Note: limit() & pretty() OPTIONAL but find() must be define.
+      👉 limit() & pretty() OPTIONAL but find() must be define.
 
 
 
-  🟢 UPDATE
+  ⭕ UPDATE
 
     Syntax : 🧬
 
-     🌿 updateOne({ find, update })  |  updateMany({ find, update }) 
+     🌿 updateOne({conditions, update}) ❗ updateMany({conditions, update}) 
 
      👉 condition must be define inside those methods.
 
 
     13. When want to update one document  📌
 
-       > db.collection.updateOne( {conditionForFind},{ $set:{ key:"value",... }});
+       > db.collection.updateOne({conditionForFind}, { $set:{ key:"value",... }});
 
-       1️⃣ Parameter :  {conditionForFind},
+       1️⃣ Parameter:  {conditionForFind},
 
-       2️⃣ Parameter :   { $set : { updateObject } }
+       2️⃣ Parameter:  { $set: { updateObject } }
 
 
        Example:  📝
        
-        > db.users.updateOne({ "name":"Tangilur" },{ $set : { age: "23", "address" : "joypurhat" }})
+        > db.users.updateOne({"name":"Tangilur"},{ $set : { age: "23", "address" : "joypurhat"}})
 
 
-      Note: condition must be define,even haven't any condition then declare => {},
-       cause " { $set : {} } " must be define 2nd parameter.
+      ⭐ condition must be define, even haven't any condition then declare => {},
+       cause "{ $set : {} }" must be define at 2nd parameter.
 
         ⚠️ condition = {} => select all documents.
 
 
-      👉 If that condition was matching with multiple documents ,
-       even update only one 1st matched document.[ cause updateOne() ]
+      👉 If that condition was matching with multiple documents,
+       even update only one 1st matched document. [cause updateOne()]
 
 
     14. When want to update multiple documents  📌
 
-      > db.collection.updateMany( {conditionForFind},{ $set:{ key:"value",... }});
+      > db.collection.updateMany({conditionForFind}, { $set:{ key:"value",... }});
   
       Example:  📝 
       
         db.users.updateMany({},{ $set : { "age":"23", address : "joypurhat" }});
 
 
-  🟢 DELETE
+  ⭕ DELETE
 
     Syntax :  🧬
 
-     🌿 deleteOne( {conditionForFind} )  |  deleteMany( {conditionForFind} ) 
+     🌿 deleteOne({conditionForFind}) ❗ deleteMany({conditionForFind}) 
 
      👉 condition must be define inside those methods.
 
@@ -257,63 +254,63 @@ Chapter 3 : CRUD Operation in MongoDB  ✌️
 
       > db.collection.deleteOne( {conditionForFind} )
 
-      👉 If that condition was matching with multiple document ,
-       even delete only one 1st matched document.[ cause deleteOne() ]
+      👉 If that condition was matching with multiple document,
+       even delete only one 1st matched document. [cause deleteOne()]
 
 
     16. When want to delete multiple documents  📌
 
-      > db.collection.deleteMany( {conditionForFind} );
+      > db.collection.deleteMany({conditionForFind});
 
-      Example: db.collection.deleteMany( {"name": "Tangil"} );
+      Example: db.collection.deleteMany({"name": "Tangil"});
 
 
 
-  # Summary   ✅
+  #️⃣ Summary   ✅
 
-    🟢 Create => db.collection.insertOne( {} ) ❗ .insertMany( [{},...] );
+    ⭕ Create => db.collection.insertOne({}) ❗ .insertMany( [{},...] );
 
-    🟢 Read   => db.collection.findOne( {conditionForFind} , { "keys" : 0 || 1 } )  ❗
+    ⭕ Read   => db.collection.findOne({conditionForFind}, {"keys" : 0 || 1} )  ❗
 
-                 .find( {conditionForFind},{ "keys" : 0 || 1 }).limit(n),skip(n).pretty();
+                 .find({conditionForFind}, {"keys" : 0 || 1}).limit(n),skip(n).pretty();
 
-    🟢 Update => db.collection.updateOne( {conditionForFind},{ $set : { ... } })  ❗
+    ⭕ Update => db.collection.updateOne({conditionForFind},{ $set : { ... } })  ❗
 
-                .updateMany( {conditionForFind},{ $set : { ... } } )
+                .updateMany({conditionForFind},{ $set : { ... } })
 
-    🟢 Delete => db.collection.deleteOne( {conditionForFind} )  ❗
+    ⭕ Delete => db.collection.deleteOne({conditionForFind})  ❗
 
-                 .deleteMany( {conditionForFind} );
+                 .deleteMany({conditionForFind});
 
        
     👉 Define Conditions Into function 
 
-      🟢 Create  => No Need
+      ⭕ Create  => No Need
 
-      🟢 Read    => Optional  [ If Don't Want Select All Documents ]
+      ⭕ Read    => Optional  [If Don't Want Select All Documents]
 
-      🟢 Update  => Must Be
+      ⭕ Update  => Must Be
 
-      🟢 Delete  => Must Be
+      ⭕ Delete  => Must Be
      
 
 
 
 Chapter 4 : mongoose  ✌️
 
-  # What is mongoose ?  ✅
+  #️⃣ What is mongoose?  ✅
 
-    Note: Elegant Object Data Modeling for Express JS.
+    🌿 Elegant Object Data Modeling for Express JS.
 
-    👉 Imagination every documents is like a Javascript's Object.
+    👉 Imagination each document is like a Javascript's Object.
 
 
-  # How to connect Node JS with MongoDB through mongoose  ✅
+  #️⃣ How to connect Node JS with MongoDB through mongoose  ✅
 
     > Node JS => mongoose => mongo driver => mongoDB => Node JS
 
 
-  # Benefits fo using mongoose  ✅
+  #️⃣ Benefits fo using mongoose  ✅
 
     1. Abstraction from raw low level MongoDB.
 
@@ -327,7 +324,7 @@ Chapter 4 : mongoose  ✌️
 
     4. Object-Data Mapping 
 
-      👉 mongoose.model( collectionName, Schema );
+      👉 mongoose.model(collectionName, Schema);
 
       Note: Translation of data into object that our code is more understandable.
 
@@ -335,66 +332,67 @@ Chapter 4 : mongoose  ✌️
 
 
 
-  # install mongoose in our application  ✅
+  #️⃣ install mongoose in our application  ✅
 
     > npm install mongoose
 
     > const mongoose = require("mongoose");
 
-      👉 Return a Object & that Object-Name anything we can define.
+      👉 Return an Object, that Object_Name anything we can define.
 
 
-  # Connect localhost Database in our Application through mongoose  ✅ 
+  #️⃣ Connect localhost Database in our Application through mongoose  ✅ 
 
     Syntax:  🧬
 
       const mongoose = require("mongoose");
 
-      🟢 mongoose.connect("mongodb://localhost:27017/DatabaseName")
-       .then(() => console.log('successfully connected'))
+      🎯 mongoose.connect("mongodb://localhost:27017/DatabaseName")
+       .then(() => console.log("successfully connected"))
        .catch((error) => console.log(error.message));
 
       or,
 
-      🟢 (async()=>{
+      🎯 (async()=>{
 
-            try {
-              await mongoose.connect(database_url);
-              console.log("database was connected");
-          
-            } catch (error) {
-                console.log("something was wrong");
-            }
-            
+          try {
+
+            await mongoose.connect(database_url);
+            console.log("successfully connected");  
+
+          } catch (error) {
+            console.log(error.message);
+          } 
+
           })();
       
 
-    Note: " mongoose.connect() " method return a promise,
+    🌿 "mongoose.connect()" method return a promise,
      we can handle it by using,
 
-      👉 then & catch
+      🎯 then & catch
 
-      👉 async & await
+      🎯 async & await
 
     doesn't even matter,
      it's just for used checking connection establish successfully or not.
 
 
     ⭐ If exist that Database then used it,
-     otherwise create that Database.
+     otherwise create that Database in MongoDB collection.
 
 
 
-  # create a Schema  ✅
+  #️⃣ create a Schema  ✅
 
-    Note: Schema means a structure of database which also help to validation when inserting Data in Database.
+    🌿 Schema means a structure of database which also help to validation when inserting data in database.
     
 
     Syntax :  🧬
 
       const mongoose = require("mongoose");
 
-      const createSchema = mongoose.Schema( {object} );
+      const createSchema = mongoose.Schema({object});
 
 
     Example: 📝
@@ -476,7 +474,7 @@ Chapter 4 : mongoose  ✌️
                
       #️⃣ some validators in mongoose  ✅
 
-        1. type : String ❗ Number ❗ Boolean ❗ Date ...
+        1️⃣ type : String ❗ Number ❗ Boolean ❗ Date ...
 
           🌿 type : String
 
@@ -500,7 +498,13 @@ Chapter 4 : mongoose  ✌️
 
               👉 set maximum length
 
-            ⭕ enum : ["accept", "only", "those", "values"]
+            ⭕ enum : ["accept", "only", "those", "values"] ❗ 
+
+                enum : {
+                  values: ["Coffee", "Tea"],
+                  message: "{VALUE} is not supported"
+                }
+              
 
 
           🌿 type : Number
@@ -525,19 +529,19 @@ Chapter 4 : mongoose  ✌️
               👉 set maximum Date
               
 
-        2. required : true ❗ false ❗ [Boolean, "ERROR-message"] 
+        2️⃣ required : true ❗ false ❗ [Boolean, "ERROR-message"] 
         
           👉 Default => false 
 
 
-        3. default : "set default value if user not define any value then apply"
+        3️⃣ default : "set default value if user not define any value then apply"
 
-        4. unique : true ❗ false   
+        4️⃣ unique : true ❗ false   
         
           👉 Default => false 
 
           
-        5. Create Custom Validate,
+        5️⃣ Create Custom Validate
 
           Syntax : 🧬
 
@@ -558,7 +562,7 @@ Chapter 4 : mongoose  ✌️
               }
             }
 
-        ⭐ Used 3rd party library for Form's "type:String" validation
+        ⭐ Used 3rd party library for Advance validation
 
           👉 Both server & client-side, we can used that library.
 
@@ -568,7 +572,7 @@ Chapter 4 : mongoose  ✌️
 
             > const validator = require("validator");
 
-            👉 return an Object which has multiple methods those return Boolean Value.
+            👉 return an Object which has multiple methods those methods return Boolean Value.
 
 
           ⭕ Server-side [with Schema]
@@ -577,13 +581,13 @@ Chapter 4 : mongoose  ✌️
 
             email : {
               type : String,
-                required : true,
-                validate(value){
+              required : true,
+              validate(value){
 
-                  if(!validator.isEmail(value)){
-                    throw new Error("Invalid Email")
-                  }
+                if(!validator.isEmail(value)){
+                  throw new Error("Invalid Email")
                 }
+              }
             }
 
 
@@ -604,9 +608,8 @@ Chapter 4 : mongoose  ✌️
 
 
 
-
       5️⃣ If we need to attach MongoDB's unique "_id" separately with specific key
-       then just simply declare that key object into an Array 📌 
+       then just simply declare that Key object into an Array 📌 
 
         Syntax : 🧬
 
@@ -619,68 +622,63 @@ Chapter 4 : mongoose  ✌️
             }]
           });
       
-      👉 Initialization : document.key = [].concat( {object},... )
+      👉 Initialization : document.key = [].concat({object},...)
    
 
-      6️⃣ { timestamps: true }
+      6️⃣ {timestamps: true}
 
-        🌿 Mongoose Schema have a "timestamps" option that tells Mongoose to automatically manage createdAt and updatedAt properties on our documents. 
+        🌿 Mongoose Schema have a "timestamps" Object that tells MongoDB to attach createdAt and updatedAt properties into our documents automatically. 
 
-        👉 Declare outside Schema Object.
+        👉 It's the 2nd parameter of mongoose.Schema() method.
 
-        👉 Default: { timestamps: false }
-
-
-
-  # create a Mongoose Model  ✅
-
-    Note: A Mongoose model is a wrapper on the Mongoose Schema,
-     & provides an interface to the database for creating, reading, updating, deleting documents etc.
+        👉 Default: {timestamps: false}
 
 
-    Note: The " mongoose.model() " method is used for create a model object which help to create a collection of a particular database of MongoDB with Schema's Validation. 
+
+  #️⃣ create a mongoose model  ✅
+
+    🌿 A mongoose model is a wrapper on the mongoose-schema,
+     & provides an interface for creating, reading, updating, deleting documents in our database.
+
+
+    👉 The "mongoose.model()" method is used for create a model object which help to create a collection of a particular database of MongoDB with Schema's Validation. 
         
 
-    Note:  The name of the collection created by the model function,
+    👉 The name of the collection created by the model function,
      
-      How : our given collection-name ( as a parameter ) convert to lowercase and put " s " in the end.     
+      🍀 our given collection-name (as a parameter) convert to lowercase and put "s" in the end.     
  
-      Example: TanGil  => tangils
+      ✒️ TanGil  => tangils
 
 
     Syntax:  🧬
 
-      const model = mongoose.model( CollectionName, CollectionSchema );
+      const model = mongoose.model("collection_name", collection_schema);
 
-      👉 return a Object.
+      👉 return an Object.
 
 
-    # Parameters: ✅
+    #️⃣ Explain of mongoose.model()'s parameters ✅
     
-      Note: This function accepts two parameters:
+      🌿 This function accepts two parameters:
 
-       1. CollectionName => It is the name of the collection.
+       1️⃣ collection_name => It is the name of the collection.
 
-        Example: Tangil  => tangils
+        ✒️ Tangil  => tangils
 
-       2. CollectionSchema: It is the Schema of the collection for validation.
-
-
-    # Return type: ✅
-    
-      Note: That function returns the model object.
+       2️⃣ collection_schema => It is the Schema of the collection for validation.
 
 
     Example :  📝
 
-     🟠 todos.models.js 
+     🎯 todoModel.js 
 
       > const mongoose = require("mongoose");
 
       require("dotenv").config();
 
       mongoose.connect(process.env.mongoDB_Url)
-      .then(()=>console.log(`connection successfully`))
+      .then(()=>console.log("connection successfully"))
       .catch(error => console.log(error.message));
 
 
@@ -711,91 +709,94 @@ Chapter 4 : mongoose  ✌️
       
 
 
-Chapter 5 : CRUD in Mongoose  ✌️
+Chapter 5 : CRUD in mongoose  ✌️
 
-  👉 In Mongoose, We can do the CRUD operation by using " mongoose.model() " returned object.
+  👉 In mongoose, we can do the CRUD operation by using "mongoose.model()" returned object.
 
   👉 Syntax almost similar with MongoDB but that mongoose's model object return a promise for working asynchronously.
 
   👉 we can handle that promise by using
 
-    🟢 then & catch
+    🎯 then & catch
 
-    🟢 async & await ⭐
+    🎯 async & await ⭐
 
     doesn't even matter
 
 
-  🟡 Create 🟡
+  ⭕ Create 
 
-  # When want to insert one document In MongoDB's Database  ✅
+  #️⃣ When want to insert one document into mongoDB database  ✅
 
-    Note: " insertOne() " method isn't available is mongoose.So 😔
+    Note: "insertOne()" method isn't available in mongoose. So 😔
 
 
     Syntax:  🧬
 
-      model(oneDocument).save(error);
+    🎯 model(oneDocument).save(error_handler_Function);
 
     or, 
 
-      const document = model(oneDocument); // here attach mongoDB's unique _id
+    🎯 const document = model(oneDocument);
+      
+        👉 here attach mongoDB's unique "_id"
 
-      document.save(error);
+      document.save(error_handler_Function);
 
 
     Example: 📝
 
       const model = mongoose.model("TODO",Schema)
 
-      app.post("/",(req,res)=>{
+      app.post("/", async(req,res)=>{
 
-        const document =  model(req.body);
-
+        const document = await model(req.body);
       or,
-
-        const document = model();
+        const document = await model();
 
         document.name = req.body.name;
         document.age = req.body.age;
         ...
 
+
         document.save(error=>{
 
-              if(error){
-                  res.sendStatus(400)
-              }else{
-                  res.sendStatus(200);
-              }
-          })
-      })
+          if(error){
+            res.sendStatus(400)
+          }else{
+            res.sendStatus(200);
+          }
+        })
+      });
         
 
-    Note: " model({}) " method return a object which store given Object's Data,
-     Here into that object also attach MongoDB's unique " _id " BY DEFAULT.
+    👉 That "model({})" method return an object which store given object's data,
+     here into that object also attach mongoDB's unique "_id" BY DEFAULT.
 
-    Note: " save() " method used for save that document's object into MongoDB,
-     It's take also one callBack() function which just for checking.
+    👉 "save()" method used for save that document's object into MongoDB,
+     it's take also one callBack() function which just for checking.
 
-    👉 That " save(error)  " function only used when we are ready to insert one document in MongoDB.
+    👉 That "save(error_handler_Function)" only used when we are ready to insert one document in mongoDB.
+
+    ⭐ That method only used when want to insert one document into mongoDB.
 
 
 
-  # When want to insert multiple documents In MongoDB' Database  ✅
+  #️⃣ When want to insert multiple documents into mongoDB database  ✅
 
-    👉 Syntax Almost similar to MongoDB's Syntax,
+    🌿 Syntax almost similar to mongoDB's syntax,
      but just return a promise for conforming & also can get those documents.
 
 
     Syntax:  🧬
 
-      🟢 model.insertMany( arrayDocuments )
-      .then( result )
-      .catch( error );
+    🎯 model.insertMany( arrayDocuments )
+     .then( result )
+     .catch( error );
     
     or, 
 
-      🟢 async (req, res) => {
+    🎯 async(req, res) => {
 
         try{
 
@@ -804,55 +805,52 @@ Chapter 5 : CRUD in Mongoose  ✌️
           res.send("Register Successfully");
 
         }catch(error){}
-
       }
 
-    👉 " .then(result) | await " return that inserted document's Array. 
+    👉 ".then(result) ❗ await" return that inserted document's Array. 
 
 
     Example:  📝
 
       app.post('/', async (req, res) => {
 
-          try {
+        try {
 
-            await model.insertMany(req.body);
-            res.send("Register Successfully");
+          await model.insertMany(req.body);
+          res.send("Register Successfully");
               
-          } catch (error) {      
-              res.send(error.message)
-          }
-
+        } catch (error) {      
+          res.send(error.message)
+        }
       });
 
 
 
-  🟡 Update 🟡
+  ⭕ Update 
 
-  # When want to update one document Into MongoDB's Database ✅
+  #️⃣ When want to update one document into mongoDB database ✅
 
-    Note: Syntax almost similar to MongoDB's Syntax,
+    Note: Syntax almost similar to mongoDB's syntax,
      but just return a promise for conforming message.
 
     Syntax:  🧬
 
-      🟢 model.updateOne( {conditionForFind},{ $set : {} })
-      .then(message)
-      .catch(error);
+    🎯 model.updateOne({conditionForFind}, { $set : {} })
+     .then(message)
+     .catch(error);
 
     or,
 
-      🟢 async (req, res) => {
+    🎯 async(req, res) => {
 
         try{
 
-          await model.updateOne( {conditionForFind},{ $set : {} });
+          await model.updateOne({conditionForFind},{ $set : {} });
           
         }catch(error){}
-
       }
 
-    👉 " .then(message) | await  " return mongoose compiler's message.
+    👉 ".then(message) ❗ await" return conforming message.
 
 
     Example: 📝
@@ -861,9 +859,9 @@ Chapter 5 : CRUD in Mongoose  ✌️
 
         try{
 
-          await model.updateOne({title:req.params.title},{
+          await model.updateOne({title: req.params.title},{
             $set : {
-                description : "i am self learner"
+              description : "Hi, everyone!"
             }
           })
 
@@ -872,34 +870,32 @@ Chapter 5 : CRUD in Mongoose  ✌️
         }catch(error){
           res.send(error.message);
         }
-
       });
 
 
 
-  # When want to update multiple documents Into MongoDB' Database ✅
+  #️⃣ When want to update multiple documents into mongoDB database ✅
 
-    👉 That procedure as same as like " model.updateOne() " method
+    👉 That procedure as same as like "model.updateOne()" method.
 
     Syntax:  🧬
 
-    🟢 model.updateMany( {conditionForFind},{ $set : {} })
+    🎯 model.updateMany({conditionForFind}, { $set : {} })
       .then(result)
       .catch(error);
 
     or,
 
-    🟢 async (req, res) => {
+    🎯 async(req, res) => {
 
         try{
 
-          await model.updateMany( {conditionForFind},{ $set : {} });
+          await model.updateMany({conditionForFind}, { $set : {} });
           
         }catch(error){}
-
       }
 
-    👉 " .then( message ) | await " return mongoose compiler's message.
+    👉 ".then( message ) ❗ await" return conforming message.
 
 
     Example: 📝
@@ -908,9 +904,9 @@ Chapter 5 : CRUD in Mongoose  ✌️
 
         try{
 
-          await model.updateMany({title:req.params.title},{
+          await model.updateMany({title: req.params.title},{
             $set : {
-                description : "i am self learner"
+                description : "Hi, everyone!"
             }
           })
 
@@ -919,88 +915,81 @@ Chapter 5 : CRUD in Mongoose  ✌️
         }catch(error){
           res.send(error.message);
         }
-
       });
 
 
-  🟡 Read 🟡
+  ⭕ Read 
 
-    # When want to get one document From MongoDB' Database  ✅
+    #️⃣ When want to get one document from mongoDB database  ✅
 
-      Note: Syntax almost similar to MongoDB's Syntax,
+      🌿 Syntax almost similar to mongoDB's syntax,
        but just get that document into promise.
-
 
       Syntax:  🧬
 
-      🟢 model.findOne( {conditionForFind},{key : 0 | 1 });
+      🎯 model.findOne({conditionForFind}, {key : 0 | 1 });
         .then(result)
         .catch(error)
 
       or,
 
-      🟢 async (req, res) => {
+      🎯 async (req, res) => {
 
           try{
 
-            const document = await model.findOne( {conditionForFind},{key : 0 | 1 } );
+            const document = await model.findOne({conditionForFind}, {key : 0 | 1 } );
 
             res.send(document);
 
           }catch(error){}
-
         }
 
-      👉 " .then(result) | await "  return expected a JSON Document.
+      👉 ".then(result) ❗ await" return expected a JSON document.
       
 
       Example:  📝
 
-        app.get('/', async (req, res) => {
+        app.get('/', async(req, res) => {
 
-            try {
-                const document = await model.findOne( {name : "Tangilur Rahman"});
+          try {
 
-                res.send(document)
-            } catch (error) {
-                res.send(error.message)
-            }
+            const document = await model.findOne({name: "Tangilur Rahman"});
 
+            res.send(document)
+
+          } catch (error) {
+            res.send(error.message)
+          }
         });
 
 
+    #️⃣ When want to get multiple documents from mongoDB database  ✅
 
-    # When want to get multiple documents From MongoDB's Database  ✅
-
-      Note: Syntax almost similar to MongoDB's Syntax,
-       but just get that documents of Array into promise .
-
+      🌿 Syntax almost similar to mongoDB's syntax,
+       but just get that documents of array into promise.
 
       Syntax:  🧬
 
-      🟢 model.find( {conditionForFind},{key : 0 | 1 }).limit(n).skip(n)
+      🎯 model.find({conditionForFind}, {key : 0 | 1 }).limit(n).skip(n)
         .then(result)
         .catch(error)
-
-        
+  
       or,
 
-      🟢 async (req, res) => {
+      🎯 async(req, res) => {
 
           try{
 
-            const documents = await model.find( {conditionForFind},{key : 0 | 1 }).limit(n).skip(n);
+            const documents = await model.find({conditionForFind}, {key : 0 | 1 }).limit(n).skip(n);
 
             res.send(documents);
 
           }catch(error){}
-
         }
 
-      👉 " .then(result) | await "  return expected a documents of Array.
+      👉 ".then(result) ❗ await" return expected a documents of array.
       
-
-      Note: Base on condition we will get multiple documents whatever we want.
+      👉 Base on condition we will get multiple documents whatever we want.
 
       👉 limit(), skip() methods are OPTIONAL.
 
@@ -1009,87 +998,84 @@ Chapter 5 : CRUD in Mongoose  ✌️
 
       Example:  📝
 
-        app.get('/', async (req, res) => {
+        app.get('/', async(req, res) => {
 
-            try {
+          try {
 
-                const arrayDocu = await model.find( {name : "Bangladesh"},{ _id : 0}).limit(1).skip(2);
-                res.send(arrayDocu)
+            const arrayDocu = await model.find({name : "Bangladesh"}, { _id : 0}).limit(1).skip(2);
 
-            } catch (error) {
-                res.send(error.message)
-            }
+            res.send(arrayDocu);
 
+          } catch (error) {
+            res.send(error.message)
+          }
         });
 
 
 
-  🟡 Delete 🟡
+  ⭕ Delete 
 
-    # When want to delete one document From MongoDB's Database ✅
+    #️⃣ When want to delete one document from mongoDB database ✅
 
-    Note: Syntax almost similar to MongoDB's Syntax,
+    🌿 Syntax almost similar to mongoDB's syntax,
      but just return a promise for conforming message.
 
     Syntax: 🧬
 
-      🟢 model.deleteOne( {conditionForFind} )
-        .then(message)
-        .catch(error);
-
-    or,
-
-      🟢 async (req, res) => {
-
-          try{
-
-            await model.deleteOne( {conditionForFind} );
-            
-          }catch(error){}
-
-        }
-
-    👉 " .then(message) | await " return mongoose compiler's message.
-
-
-    Example : 📝
-
-      app.delete('/', async (req, res) => {
-
-        try {
-            await model.deleteOne( {name : "china"});
-            res.send("delete successfully")
-        } catch (error) {
-            
-            res.send(error.message)
-        }
-
-      });
-
-
-  # When want to delete multiple documents From MongoDB's Database ✅
-
-    👉 That procedure as same as like " deleteOne() " method.
-
-    Syntax: 🧬
-
-      🟢 model.deleteMany( {conditionForFind} )
+    🎯 model.deleteOne({conditionForFind})
       .then(message)
       .catch(error);
 
     or,
 
-      🟢 async (req, res) => {
+    🎯 async (req, res) => {
 
         try{
 
-          await model.deleteMany( {conditionForFind} );
-            
+          await model.deleteOne( {conditionForFind} );
+              
         }catch(error){}
-
       }
 
-    👉 " .then(message) | await " return mongoose compiler's message.
+    👉 ".then(message) ❗ await" return conforming message.
+
+
+    Example : 📝
+
+      app.delete('/', async(req, res) => {
+
+        try {
+            await model.deleteOne({name : "china"});
+            res.send("delete successfully")
+        } catch (error) {
+            
+          res.send(error.message)
+        }
+      });
+
+
+  #️⃣ When want to delete multiple documents from MongoDB database ✅
+
+    👉 That procedure as same as like "deleteOne()" method.
+
+    Syntax: 🧬
+
+    🎯 model.deleteMany( {conditionForFind} )
+      .then(message)
+      .catch(error);
+
+    or,
+
+    🎯 async (req, res) => {
+
+        try{
+
+          await model.deleteMany({conditionForFind});
+            
+        }catch(error){}
+      }
+
+    👉 ".then(message) ❗ await" return conforming message.
 
 
     Example : 📝
@@ -1097,23 +1083,22 @@ Chapter 5 : CRUD in Mongoose  ✌️
       app.delete('/', async (req, res) => {
 
         try {
-            await model.deleteMany( {name : "china"});
+            await model.deleteMany( {name : "Tangil"});
             res.send("deletes successfully")
 
         } catch (error) {
             
-            res.send(error.message)
+          res.send(error.message)
         }
-
       });
 
 
 
-  🟢 Summary 🟢
+  🌿 Summary 
 
-    🟡 Set-up Mongoose
+    ⭕ Set-up mongoose
 
-    1. At first connect MongoDB's Database through Mongoose in our application. 📌
+    1️⃣ At first connect mongoDB's database through mongoose in our application. 📌
 
       > const mongoose = require("mongoose");
 
@@ -1122,68 +1107,68 @@ Chapter 5 : CRUD in Mongoose  ✌️
         .catch( error );
 
 
-    2. Then create Schema for Database's Structure & validation of inputting data  📌
+    2️⃣ Then create schema for database's structure & validation of inputting data  📌
 
       > const schema = mongoose.Schema({ key : validator })
 
 
-    3. Then create model for operation CRUD in a collection with Schema validation
+    3️⃣ Then create model for operation CRUD in a collection with schema validation
 
-      > const model = mongoose.model( collectionName, Schema );
+      > const model = mongoose.model(collection_name, schema );
 
 
-    🟡 CRUD Operation
+    ⭕ CRUD Operation
  
-    4. Create Document(s)  📌
+    4️⃣ Create document(s)  📌
 
-      🟢 One Document Create
+      🎯 One document create
 
-        > model(oneDocument).save(error);
+        > await model(oneDocument).save(error_handler_function);
 
 
-      🟢 multiple Documents Create at a time
+      🎯 Multiple documents create at a time
 
-        > await model.insertMany( arrayDocument);
+        > await model.insertMany(arrayDocument);
           
 
 
-    5. Read Document(s)  📌
+    5️⃣ Read document(s)  📌
 
-      🟢 One Document Read
+      🎯 One document read
 
-        > await model.findOne( {conditionForFind},{ selection });
+        > await model.findOne({conditionForFind}, { selection });
 
 
-      🟢 multiple Document Read
+      🎯 Multiple document read
       
-        > await model.find( {conditionForFind},{ selection }).limit(number).skip(number);
+        > await model.find({conditionForFind}, { selection }).limit(number).skip(number);
       
 
-    6. Update Document(s) 📌
+    6️⃣ Update document(s) 📌
 
-      🟢 one document update
+      🎯 one document update
 
-        > await model.updateOne( {conditionForFind},{ $set : {...} } );
+        > await model.updateOne({conditionForFind}, { $set : {...} } );
          
         
-      🟢 multiple Documents update at a time 
+      🎯 Multiple documents update at a time 
 
-        > await model.updateMany( {conditionForFind},{ $set : {...} });      
+        > await model.updateMany({conditionForFind}, { $set : {...} });      
 
 
-    7. Delete Document(s)  📌
+    7. Delete document(s)  📌
 
-      🟢 one document update
+      🎯 one document delete
 
-        > await model.deleteOne( {conditionForFind} );
+        > await model.deleteOne({conditionForFind});
           
 
-      🟢 multiple Documents delete at a time 
+      🎯 multiple documents delete at a time 
 
-        > await model.deleteMany( {conditionForFind} );
+        > await model.deleteMany({conditionForFind});
       
 
-    # What could we get from " then(resolve) " method or " await "  ✅
+    #️⃣ What could we get from "then(resolve) ❗ await"  ✅
 
       👉 CREATE => document(s)
 
@@ -1197,28 +1182,27 @@ Chapter 5 : CRUD in Mongoose  ✌️
 
 Chapter 6 : Populate Relation  ✌️
 
-  🌿 In mongoose, we can also establish relation between multiple database. 
+  🌿 In mongoose, we can also establish relation between multiple collections. 
 
-  
   👉 Set-up
 
-  🟠 In Schema
+  ⭕ In Schema
 
     anyName: {
       type : mongoose.Types.ObjectId,
-      ref : "database_name"
+      ref : "collection_name"
     }
 
 
-  🟠 When need to get
+  ⭕ When need to get
 
-    model.fine({}).populate("database_name","view_specific_field -ignore_specific_field");
+    > await model.fine({}).populate("collection_name", "view_specific_field -ignore_specific_field");
 
 
     
-Chapter 7 : MongoDB Cloud  ✌️
+Chapter 7 : MongoDB altas  ✌️
 
-  👉 Used MongoBD Cloud for access MongoDB's Database from anywhere.
+  👉 Used MongoBD altas for access mongoDB's database from anywhere.
 
-
+😊 END 😊
 */
